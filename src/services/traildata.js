@@ -1,11 +1,15 @@
 import axios from 'axios';
 
-const headers = {
+// API call with city, state, and activity passed in as variables
+
+const API_KEY = {
   "X-Mashape-Key": "O2guePNmgxmshNbFjogYVv8qsKeZp15DiZqjsnyMiyDW4poyis",
-  "Accept": "text/plain"
+  "Accept": "text/html"
 }
 
-export const getData = function() {
-  return axios.get('https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=mountain+biking&q[city_cont]=Provo&q[state_cont]=Utah', headers)
-  .then(res => {console.log(res.data); return res.data.places})
+export const getTrailData = function(city, state, activity) {
+  return axios.get(`https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=${activity}&q[city_cont]=${city}&q[state_cont]=${state}&radius=30`, {
+    headers: API_KEY
+  })
+  .then(res => res.data.places)
 }
