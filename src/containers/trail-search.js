@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 class TrailSearch extends Component {
 
@@ -13,26 +12,33 @@ class TrailSearch extends Component {
     searchCity: ''
   }
 
-  this.handleSearch = this.handleSearch.bind(this);
+  this.handleCitySearch = this.handleCitySearch.bind(this);
+  this.handleStateSearch = this.handleStateSearch.bind(this);
   this.search = this.search.bind(this);
   this.searchOnClick = this.searchOnClick.bind(this);
 
 }
 
-handleSearch(event) {
+handleCitySearch(event) {
   this.setState({
-    searchCity: event.target.value
+    searchCity: event.target.value,
+  })
+}
+
+handleStateSearch(event) {
+  this.setState({
+    searchState: event.target.value
   })
 }
 
 search() {
-  console.log(`Searching for ${this.state.searchCity}`)
+  console.log(`Searching for ${this.state.searchCity} and ${this.state.searchState}`)
 }
 
 searchOnClick(event) {
   event.preventDefault();
-  this.props.getTrailData(this.state.searchCity);
-  this.setState({searchCity: ''});
+  this.props.getTrailData(this.state.searchCity, this.state.searchState);
+  this.setState({searchCity: '', searchState: ''});
 }
 
 render() {
@@ -45,15 +51,17 @@ return (
   <div className="trail-search">
 
     <div className="search-input">
-      <h4>Search for a Trail in Utah:</h4>
+      <h4>Search for a Trail:</h4>
       <input
-      onChange={this.handleSearch}
+      onChange={this.handleCitySearch}
       placeholder="City" />
-      <button onClick={this.searchOnClick}>Get Data</button>
-      <p>Results for: {this.state.searchCity}</p>
+      <input
+      onChange={this.handleStateSearch}
+      placeholder="State" />
+      <button onClick={this.searchOnClick}>Search</button>
+      <p>Results for: {this.state.searchCity} {this.state.searchState}</p>
       {this.props.loading ? 'Loading...' : TrailData}
     </div>
-
 
   </div>
 );
