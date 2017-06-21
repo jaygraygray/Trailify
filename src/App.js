@@ -19,6 +19,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header"></div>
         <TrailSearch />
+        <p className="App-intro">
+
+        </p>
       </div>
     );
   }
