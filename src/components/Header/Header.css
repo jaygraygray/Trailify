@@ -1,0 +1,49 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: #403E3E;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+}
+
+li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  position: relative;
+  padding-top: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+  overflow: hidden;
+  height: 50px;
+  float: left;
+  cursor: pointer;
+}
+
+li::after {
+  background-color: #FF8B27;
+  content: "";
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  transition: width 0.35s ease 0s;
+  position: absolute;
+
+}
+
+li:hover {
+  background-color: #4f4f4f;
+}
+
+li:hover::after {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
