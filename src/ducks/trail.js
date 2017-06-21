@@ -22,9 +22,9 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-export function getTrailData(city, state) {
+export function getTrailData(city, state, activity) {
   return {
     type: GET_DATA,
-    payload: dataimport.getTrailData(city, state)
+    payload: dataimport.getTrailData(city, state, activity)
   }
 }

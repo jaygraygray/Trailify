@@ -14,6 +14,7 @@ class TrailSearch extends Component {
 
   this.handleCitySearch = this.handleCitySearch.bind(this);
   this.handleStateSearch = this.handleStateSearch.bind(this);
+  this.handleActivitySearch = this.handleActivitySearch.bind(this);
   this.search = this.search.bind(this);
   this.searchOnClick = this.searchOnClick.bind(this);
 
@@ -31,14 +32,20 @@ handleStateSearch(event) {
   })
 }
 
+handleActivitySearch(event) {
+  this.setState({
+    searchActivity: event.target.value
+  })
+}
+
 search() {
-  console.log(`Searching for ${this.state.searchCity} and ${this.state.searchState}`)
+  console.log(`Searching for ${this.state.searchCity}, ${this.state.searchState}, and ${this.state.searchActivity}`)
 }
 
 searchOnClick(event) {
   event.preventDefault();
-  this.props.getTrailData(this.state.searchCity, this.state.searchState);
-  this.setState({searchCity: '', searchState: ''});
+  this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
+  this.setState({searchCity: '', searchState: '', searchActivity: ''});
 }
 
 render() {
@@ -58,8 +65,14 @@ return (
       <input
       onChange={this.handleStateSearch}
       placeholder="State" />
+      <select
+        onChange={this.handleActivitySearch}
+        placeholder="Select activity">
+          <option>Select activity</option>
+          <option value="hiking">Hiking</option>
+          <option value="mountain biking">Mountain Biking</option>
+      </select>
       <button onClick={this.searchOnClick}>Search</button>
-      <p>Results for: {this.state.searchCity} {this.state.searchState}</p>
       {this.props.loading ? 'Loading...' : TrailData}
     </div>
 
