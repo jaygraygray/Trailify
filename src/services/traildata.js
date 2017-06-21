@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// API call with city, state, and activity passed in as variables
+
 const API_KEY = {
   "X-Mashape-Key": "O2guePNmgxmshNbFjogYVv8qsKeZp15DiZqjsnyMiyDW4poyis",
   "Accept": "text/html"

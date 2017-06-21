@@ -21,6 +21,8 @@ class TrailSearch extends Component {
 
 }
 
+// Set state of search inputs.
+
 handleCitySearch(event) {
   this.setState({
     searchCity: event.target.value,
@@ -39,9 +41,13 @@ handleActivitySearch(event) {
   })
 }
 
+// Search function to be run when "Submit button is clicked".
+
 searchOnClick(event) {
   event.preventDefault();
 
+  // Check to make sure values to be passed to the API have been entered and selected.
+  // If they are, run API call. If not, alert user.
 
   if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
@@ -50,7 +56,7 @@ searchOnClick(event) {
     alert("Please search for a city, state, and activity type");
   }
 
-  // Reset search values on click
+  // Reset values on "Search".
 
   const cityInput = document.getElementById('city-search');
   const stateInput = document.getElementById('state-search');
@@ -100,6 +106,8 @@ return (
 
   }
 }
+
+// Get data from reducer and action creator.
 
 function mapStateToProps(state) {
     return {
