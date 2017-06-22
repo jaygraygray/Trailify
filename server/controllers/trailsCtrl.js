@@ -4,7 +4,6 @@ const db = app.get('db')
 var exports = module.exports = {}
 
 exports.getfeaturedtrails = (req, res) => {
-  console.log(db);
   db.featured_trails((err, response) => {
     if (err) {
       console.log(err)
