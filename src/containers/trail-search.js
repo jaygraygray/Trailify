@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
+import { createHashHistory } from 'history'
+
+export const history = createHashHistory();
 
 class TrailSearch extends Component {
 
@@ -71,15 +74,14 @@ searchOnClick(event) {
 
   // this.setState({searchCity: '', searchState: '', searchActivity: ''});
 
+  history.push('./results')
+
 }
 
 render() {
 
-  const TrailData = this.props.info.map((data, i) => (
-      <div key={i}>{data.name}</div>
-    ))
-
 return (
+
   <div className="trail-search">
 
     <div className="search-input">
@@ -98,10 +100,10 @@ return (
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <button onClick={this.searchOnClick}>Search</button>
-      {this.props.loading ? 'Loading...' : TrailData}
     </div>
 
   </div>
+  
 );
 
   }
