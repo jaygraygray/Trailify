@@ -29,7 +29,6 @@ const trailsCtrl = require('./controllers/trailsCtrl')
 //========================= Get Request =============================//
 
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
-// app.get('/api/hats', productsCtrl.gethats)
 
 //======================= Listening Port ============================//
 
