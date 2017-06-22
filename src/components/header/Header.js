@@ -8,8 +8,8 @@ class Header extends Component {
         return (
             <div>
               <ul className="navbar">
-                <li><Link to="/">HOME</Link></li>
-                <li><Link to="/about">ABOUT</Link></li>
+                <li><Link to="/" className="text">HOME</Link></li>
+                <li><Link to="/about" className="text">ABOUT</Link></li>
                 <li>LOGIN/REGISTER</li>
               </ul>
             </div>
