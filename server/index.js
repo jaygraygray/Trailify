@@ -7,7 +7,7 @@ const express = require('express')
       , cors = require('cors')
       , passport = require('passport')
       , Auth0Strategy = require('passport-auth0')
-      , config = require('./config')
+      , config_server = require('./config_server')
 
 //========================= Intialize App ===========================//
 
@@ -18,7 +18,7 @@ app.use(express.static('public'))
 
 //=========================== Database ==============================//
 
-const massiveInstance = massive.connectSync(config.massiveConnection)
+const massiveInstance = massive.connectSync(config_server.massiveConnection)
 app.set('db', massiveInstance)
 const db = app.get('db')
 
