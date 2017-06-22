@@ -1,0 +1,27 @@
+.about-picture{
+    height: 25vh;
+    /*background-color: black;*/
+    background-image: url("./about-group.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.about-content-container{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.about-header{
+    display: flex;
+    justify-content: center;
+}
+.about-content-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.about-content{
+    width: 75%;
+}
