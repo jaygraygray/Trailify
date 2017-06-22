@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history'
-// import { Link } from 'react-router-dom';
 
 export const history = createHashHistory();
 
@@ -74,17 +73,15 @@ searchOnClick(event) {
   // pass it down as props into different views. -TG
 
   // this.setState({searchCity: '', searchState: '', searchActivity: ''});
+
   history.push('./results')
+
 }
 
 render() {
 
-  const TrailData = this.props.info.map((data, i) => (
-      <div key={i}>{data.name}</div>
-    ))
-    // console.log(this.props.info);
-
 return (
+
   <div className="trail-search">
 
     <div className="search-input">
@@ -102,12 +99,11 @@ return (
           <option value="hiking">Hiking</option>
           <option value="mountain biking">Mountain Biking</option>
       </select>
-        <button onClick={this.searchOnClick}>Search</button>
-        {this.props.loading ? 'Loading...' : TrailData}
-      
+      <button onClick={this.searchOnClick}>Search</button>
     </div>
 
   </div>
+  
 );
 
   }
