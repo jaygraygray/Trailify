@@ -24,11 +24,11 @@ const db = app.get('db')
 
 //========================== Controller =============================//
 
-// const productsCtrl = require('./controllers/productsCtrl')
+const trailsCtrl = require('./controllers/trailsCtrl')
 
 //========================= Get Request =============================//
 
-// app.get('/api/products', productsCtrl.getproducts)
+app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
 // app.get('/api/hats', productsCtrl.gethats)
 
 //======================= Listening Port ============================//
