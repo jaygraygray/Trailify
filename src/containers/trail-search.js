@@ -54,6 +54,7 @@ searchOnClick(event) {
 
   if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
+    history.push('./results');
   }
   else {
     alert("Please search for a city, state, and activity type");
@@ -69,12 +70,7 @@ searchOnClick(event) {
   stateInput.value = '';
   activityInput.value = 'select';
 
-  // Reset state? I don't think so since we want to
-  // pass it down as props into different views. -TG
-
-  // this.setState({searchCity: '', searchState: '', searchActivity: ''});
-
-  history.push('./results')
+  this.setState({searchCity: '', searchState: '', searchActivity: ''});
 
 }
 
@@ -85,7 +81,6 @@ return (
   <div className="trail-search">
 
     <div className="search-input">
-      <h4>Search for a Trail:</h4>
       <input id="city-search"
       onChange={this.handleCitySearch}
       placeholder="City" />
@@ -99,11 +94,12 @@ return (
           <option value="hiking">Hiking</option>
           <option value="mountain biking">Mountain Biking</option>
       </select>
-      <button onClick={this.searchOnClick}>Search</button>
+      <br />
+      <button onClick={this.searchOnClick}>SUBMIT</button>
     </div>
 
   </div>
-  
+
 );
 
   }

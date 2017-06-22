@@ -2,19 +2,26 @@ import React, { Component } from 'react';
 import TrailSearch from '../../containers/trail-search';
 import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
+import './LandingPage.css';
 
 class LandingPage extends Component {
-    constructor(props) {
-  super(props);
-  this.state = {
-    trailData: {}
-  }
-}
+
     render() {
         return (
-            <div>
-                <TrailSearch />
-            </div>
+
+          <section className="landing-page-contain">
+
+            <section className="landing-page-photo-contain"></section>
+
+            <section className="search-contain">
+
+              <div className="trail-search">
+                  <TrailSearch />
+              </div>
+
+            </section>
+
+          </section>
         );
     }
 }
