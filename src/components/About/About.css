@@ -1,5 +1,7 @@
+* { box-sizing: border-box; }
+
 .about-picture{
-    height: 25vh;
+    height: 55vh;
     /*background-color: black;*/
     background-image: url("./about-group.jpg");
     background-size: cover;
@@ -7,15 +9,26 @@
     background-position: center;
 }
 .about-content-container{
-    height: 500px;
+    height: 800px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #EFF0F4;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
 }
 .about-header{
     display: flex;
     justify-content: center;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    font-size: 35px;
+
 }
 .about-content-wrapper{
     width: 100%;
