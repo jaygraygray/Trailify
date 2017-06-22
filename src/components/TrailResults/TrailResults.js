@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
+import './TrailResults.css';
 
 class TrailResults extends Component {
 
@@ -15,13 +16,22 @@ class TrailResults extends Component {
     render() {
 
       const TrailData = this.props.info.map((data, i) => (
-          <div key={i}>{data.name}</div>
+          <div className="trail-list-items" key={i}>{data.name}</div>
         ))
 
         return (
-            <div>
-              {this.props.loading ? 'Loading...' : TrailData}
+          <section className="results-container">
+
+          <div className="maps-results-wrapper">
+            <div className="google-maps-contain"></div>
+            <div className="trails-contain">
+
+                <div>{this.props.loading ? 'Loading...' : TrailData}</div>
+            
             </div>
+          </div>
+
+          </section>
         );
     }
 }
