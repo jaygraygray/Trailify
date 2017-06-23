@@ -22,13 +22,13 @@ ReactDOM.render(
         <Route component={ Header }/>
         <Route exact path="/" component={ LandingPage }/>
         <Route path="/results" component={ TrailResults } />
-        <Route path="/details/:id" component={ TrailDetails } />
+        <Route exact path="/details/:id" component={ TrailDetails } />
         <Route path="/login" component={ UserLogin } />
         <Route path="/profile" component={ UserProfile } />
         <Route path="/about" component={ About } />
         <Route component={ Footer }/>
       </div>
     </Router>
-  </Provider>, 
+  </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
