@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  text-decoration: none;
 }
 
 .google-maps-contain {
@@ -30,5 +31,6 @@
   margin: 10px;
   display: flex;
   justify-content: center;
-
+  cursor: pointer;
+  text-decoration: none;
 }

@@ -11,5 +11,5 @@ export const getTrailData = function(city, state, activity) {
   return axios.get(`https://trailapi-trailapi.p.mashape.com/?q[activities_activity_type_name_eq]=${activity}&q[city_cont]=${city}&q[state_cont]=${state}&radius=30`, {
     headers: API_KEY
   })
-  .then(res => res.data.places)
+  .then(res => {console.log(res.data.places) ;return res.data.places})
 }
