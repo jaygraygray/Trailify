@@ -17,7 +17,8 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.0",
     "redux-promise-middleware": "^4.3.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "youtube-api-search": "^0.0.5"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

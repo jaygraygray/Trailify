@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
-import { createHashHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import YTSearch from 'youtube-api-search';
 
 
-export const history = createHashHistory();
+// export const history = createBrowserHistory();
 
 // Go in config
 
@@ -64,7 +64,8 @@ searchOnClick(event) {
 
   if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
-    history.push('./results');
+    
+    // history.push('./results');
   }
   else {
     alert("Please search for a city, state, and activity type");
