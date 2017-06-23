@@ -11,6 +11,7 @@ class LandingPage extends Component {
 
           <section className="landing-page-contain">
 
+
             <section className="landing-page-photo-contain"></section>
 
             <section className="search-contain">
