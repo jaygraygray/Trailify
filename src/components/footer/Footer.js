@@ -23,18 +23,13 @@ class Footer extends Component {
                     <div className="contact-us">
                         <h2>Contact Us</h2>
                         <div className="contact-info">
-                            <h4>Taylor</h4>
-                                <br />
-                                tgriffith14@hotmail.com
-                            <h4>Chase</h4>
-                                <br />
-                                chasederr@gmail.com
-                            <h4>David</h4>
-                            <br />
-                                davidtagholmes@gmail.com
-                            <h4>Brian</h4>
-                            <br />
-                                brianinhtran@outlook.com
+                            <h4 className="contact-names">Taylor <div className="name-seperate">tgriffith14@hotmail.com</div></h4>
+
+                            <h4 className="contact-names">Chase <div className="name-seperate">chasederr@gmail.com</div></h4>
+
+                            <h4 className="contact-names">David <div className="name-seperate">davidtagholmes@gmail.com</div></h4>
+
+                            <h4 className="contact-names">Brian <div className="name-seperate">brianinhtran@outlook.com</div></h4>
                         </div>
                     </div>
                 </main>
