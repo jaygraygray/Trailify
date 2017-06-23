@@ -1,3 +1,5 @@
+* { box-sizing: border-box; }
+
 .navbar {
   width: 100%;
   height: 100px;
@@ -5,6 +7,15 @@
   display: flex;
   justify-content: flex-end;
   position: fixed;
+}
+img{
+  width: 173px;
+  height: 91px;
+  background:none;
+  line-height:45px;
+  float: left;
+  margin-right: 560px;
+  margin-top: 5px;
 }
 
 li {

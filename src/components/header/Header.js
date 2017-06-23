@@ -8,6 +8,7 @@ class Header extends Component {
         return (
             <div>
               <ul className="navbar">
+                <img src="./white-logo-nav.png" alt=""></img>
                 <li><Link to="/" className="text">HOME</Link></li>
                 <li><Link to="/about" className="text">ABOUT</Link></li>
                 <li>LOGIN/REGISTER</li>

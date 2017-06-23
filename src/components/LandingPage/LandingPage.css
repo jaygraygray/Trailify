@@ -1,8 +1,13 @@
+* { box-sizing: border-box; }
+
 .landing-page-photo-contain {
-  height: 130vh;
+  height: 90vh;
   width: 100%;
-  background-color: silver;
-  display: flex;
+  background-image: url('https://lh3.googleusercontent.com/-ss7Sypy-F2c/UO5TZyxzkrI/AAAAAAAALrU/zuBbB3cSXaU/w2048-h1365/Delicate%2BArch.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-position: center;
 }
 
 
@@ -16,6 +21,7 @@
 }
 
 .search-input {
+  margin-top: 57px;
   text-align: center;
   color: white;
 }
@@ -40,6 +46,8 @@
 }
 
 .search-input input {
+  height: 35px;
+  width: 200px;
   margin-left: 2vw;
   margin-right: 2vw;
   background-color: transparent;
@@ -47,19 +55,29 @@
   text-align: center;
   outline: none;
   color: white;
+  font-size: 20px
+
 }
 
 .search-input select {
+  height: 35px;
+  width: 200px;
   margin-left: 2vw;
   background-color: transparent;
   border: 3px white solid;
   text-align: center;
   outline: none;
   color: white;
+  font-size: 20px;
+  /*-webkit-appearance: none;
+  border-radius: 0;*/
+
 }
 
 .search-input button {
-  margin-left: 4vw;
+  height: 35px;
+  width: 75px;
+  margin-left:2vw;
   margin-top: 2vw;
   background-color: transparent;
   border: 3px white solid;
@@ -68,4 +86,5 @@
   cursor: pointer;
   color: white;
   font-weight: bold;
+  font-size: 10px
 }
