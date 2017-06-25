@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
-import YTSearch from 'youtube-api-search';
-
 
 export const history = createHashHistory();
 
-// Go in config
-
-const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
-
-YTSearch({key: API_Key, term: "insert trail and activity here"}, function(data) {
-  console.log(data);
-})
 
 class TrailSearch extends Component {
 
@@ -82,10 +73,6 @@ searchOnClick(event) {
 
   this.setState({searchCity: '', searchState: '', searchActivity: ''});
 
-  // YouTube Search
-
-
-
 }
 
 render() {
@@ -111,7 +98,6 @@ return (
       <br />
       <button onClick={this.searchOnClick}>SUBMIT</button>
     </div>
-
   </div>
 
 );

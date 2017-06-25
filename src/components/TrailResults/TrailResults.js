@@ -14,13 +14,12 @@ class TrailResults extends Component {
     trailData: {}
   }
 }
+
     render() {
-  console.log(this.props.info)
 
       const TrailData = this.props.info.map((data, i) => (
           <div className="trail-list-items" key={i}><Link to={`/details/${data.unique_id}`}>{data.name}</Link></div>
         ))
-        // const { lon, lat } = TrailData.info;
 
         return (
           <section className="results-container">
@@ -29,7 +28,7 @@ class TrailResults extends Component {
             <div className="google-maps-contain">
               <GoogleMap />
             </div>
-                
+
             <div className="trails-contain">
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
 
