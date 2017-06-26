@@ -57,11 +57,10 @@ videoSearch(term) {
               <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
               <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
               <img className="trail-photo" src={this.state.trailPhoto} alt="Photo Not Found" />
-              <h2>Description</h2>
+              <h3 className="trail-name-h2">{this.state.trail.name}</h3>
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
-              <h2>Driving Directions</h2>
+              <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
-              <h1>Videos</h1>
               <VideoDetail video={this.state.selectedVideo}/>
               <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
