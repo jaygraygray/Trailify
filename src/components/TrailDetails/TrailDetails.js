@@ -18,6 +18,7 @@ class TrailDetails extends Component {
     trailData: {},
     trail: {},
     trailDescription: '',
+    trailPhoto: '',
     videos: [],
     selectedVideo: null,
   }
@@ -43,7 +44,7 @@ videoSearch(term) {
         trailArr.push(arr[i]);
       }
     }
-    this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description});
+    this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
     if (trailArr[0]) {
       this.videoSearch(trailArr[0].name + " trail" + ' ' + trailArr[0].city);
     }
@@ -54,7 +55,9 @@ videoSearch(term) {
 
         return (
             <div className="trail-details-contain">
-              <h1>{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+              <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+              <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
+              <img className="trail-photo" src={this.state.trailPhoto} alt="Photo Not Found" />
               <h2>Description</h2>
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h2>Driving Directions</h2>

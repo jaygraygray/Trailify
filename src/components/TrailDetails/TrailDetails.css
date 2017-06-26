@@ -3,6 +3,31 @@
   text-align: center;
 }
 
+.trail-photo {
+  width: 100%;
+  height: auto;
+  margin-top: -75vh;
+  z-index: -1000;
+  margin-bottom: 5vh;
+}
+
+.trail-title {
+  padding-top: 10vh;
+  font-size: 12vh;
+  justify-content: flex-start;
+  color: white;
+  opacity: 0.5;
+  font-family: AtlasGrotesk, sans-serif;
+}
+
+.trail-location {
+  font-size: 7vh;
+  justify-content: flex-start;
+  color: white;
+  opacity: 0.5;
+  font-family: AtlasGrotesk, sans-serif;
+}
+
 .trail-description {
   width: 75%;
   text-align: center;
