@@ -19,9 +19,10 @@ app.use(passport.session())
 
 app.use(bodyParser.json())
 app.use(cors())
-app.use(express.static('public'))
+app.use(express.static('.././build'))
 
 //============================== Auth0 ===============================//
+
 
 passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, refreshToken, extraParams, profile, done) {
    return done(null, profile);
@@ -63,7 +64,7 @@ app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
 
 //======================= Listening Port ============================//
 
-const port = 7000
+const port = 5000
 
 app.listen(port, () => {
   console.log("Started server on port", port)
