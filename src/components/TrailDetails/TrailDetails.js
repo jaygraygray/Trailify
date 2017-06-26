@@ -19,6 +19,7 @@ class TrailDetails extends Component {
     trail: {},
     trailDescription: '',
     trailPhoto: '',
+    trailLength: '',
     videos: [],
     selectedVideo: null,
   }
@@ -44,7 +45,7 @@ videoSearch(term) {
         trailArr.push(arr[i]);
       }
     }
-    this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
+    this.setState({trail: trailArr[0], trailLength: trailArr[0].activities[0].length, trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
     if (trailArr[0]) {
       this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
     }
@@ -56,7 +57,17 @@ videoSearch(term) {
             <div className="trail-details-contain">
               <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
               <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
-              <img className="trail-photo" src={this.state.trailPhoto} alt="Photo Not Found" />
+              <img className="trail-photo" src={this.state.trailPhoto} alt="Not Found" />
+              <div className="trail-additional-info-contain">
+                <div className="trail-distance">
+                  <h3>DISTANCE <span>(ROUND-TRIP)</span></h3>
+                  <h1>{this.state.trailLength > 0 ? this.state.trailLength + " mi" : 'Trail length not found'}</h1>
+                </div>
+                <div className="trail-weather">
+                  <h3>WEATHER</h3>
+                  <h1>93 &#8457;</h1>
+                </div>
+              </div>
               <h3 className="trail-name-h2">{this.state.trail.name}</h3>
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
