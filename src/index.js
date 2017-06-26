@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -17,18 +17,20 @@ import About from './components/About/About';
 
 ReactDOM.render(
  <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <div>
-        <Route component={ Header }/>
-        <Route exact path="/" component={ LandingPage }/>
-        <Route path="/results" component={ TrailResults } />
-        <Route exact path="/details/:id" component={ TrailDetails } />
-        <Route path="/login" component={ UserLogin } />
-        <Route path="/profile" component={ UserProfile } />
-        <Route path="/about" component={ About } />
-        <Route component={ Footer }/>
-      </div>
-    </Router>
+          <Route component={ Header }/>
+        <Switch>
+          <Route path="/results" component={ TrailResults } />
+          <Route path="/details/:id" component={ TrailDetails } />
+          <Route path="/login" component={ UserLogin } />
+          <Route path="/profile" component={ UserProfile } />
+          <Route path="/about" component={ About } />
+          <Route path="/" component={ LandingPage }/>
+        </Switch>
+          <Route component={ Footer }/>
+    </div>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();

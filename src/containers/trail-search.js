@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { connect } from 'react-redux';
-import { createHashHistory } from 'history';
+import YTSearch from 'youtube-api-search';
+import { Redirect } from 'react-router-dom';
 
-export const history = createHashHistory();
 
+// Go in config
+
+const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
+
+YTSearch({key: API_Key, term: "insert trail and activity here"}, function(data) {
+  console.log(data);
+})
 
 class TrailSearch extends Component {
 
@@ -15,7 +22,8 @@ class TrailSearch extends Component {
     trailData: {},
     searchCity: '',
     searchState: '',
-    searchActivity: ''
+    searchActivity: '',
+    shouldRedirect: false
   }
 
   this.handleCitySearch = this.handleCitySearch.bind(this);
@@ -46,36 +54,48 @@ handleActivitySearch(event) {
 }
 
 // Search function to be run when "Submit button is clicked".
-
 searchOnClick(event) {
   event.preventDefault();
+// console.log(window.history);
 
   // Check to make sure values to be passed to the API have been entered and selected.
   // If they are, run API call. If not, alert user.
 
   if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
-    history.push('./results');
+    this.setState({
+      shouldRedirect: true
+    });
   }
+
   else {
     alert("Please search for a city, state, and activity type");
   }
 
   // Reset values on "Search".
 
-  const cityInput = document.getElementById('city-search');
-  const stateInput = document.getElementById('state-search');
-  const activityInput = document.getElementById('activity-search');
+  // const cityInput = document.getElementById('city-search');
+  // const stateInput = document.getElementById('state-search');
+  // const activityInput = document.getElementById('activity-search');
 
-  cityInput.value = '';
-  stateInput.value = '';
-  activityInput.value = 'select';
+  // cityInput.value = '';
+  // stateInput.value = '';
+  // activityInput.value = 'select';
 
-  this.setState({searchCity: '', searchState: '', searchActivity: ''});
+  // this.setState({searchCity: '', searchState: '', searchActivity: ''});
+
 
 }
 
+
+
 render() {
+  if (this.state.shouldRedirect) {
+    return <Redirect to="/results" />
+  }
+  else{
+    
+  
 
 return (
 
@@ -96,13 +116,14 @@ return (
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <br />
-      <button onClick={this.searchOnClick}>SUBMIT</button>
+      <button onClick={this.searchOnClick} />
     </div>
   </div>
 
 );
 
   }
+}
 }
 
 // Get data from reducer and action creator.
