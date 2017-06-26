@@ -6,7 +6,8 @@ const GET_DATA_FULFILLED = 'GET_DATA_FULFILLED';
 
 const initialState = {
   trailData: [],
-  loading: false
+  loading: false,
+  searchActivity: ''
 }
 
 export default function reducer(state = initialState, action) {
@@ -15,7 +16,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {loading: true})
 
     case GET_DATA_FULFILLED:
-      return Object.assign({}, state, {loading: false, trailData: action.payload})
+      return Object.assign({}, state, {loading: false, trailData: action.payload, searchActivity: action.searchActivity})
 
     default:
       return state
@@ -26,5 +27,6 @@ export function getTrailData(city, state, activity) {
   return {
     type: GET_DATA,
     payload: dataimport.getTrailData(city, state, activity),
+    searchActivity: activity
   }
 }
