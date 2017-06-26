@@ -17,6 +17,7 @@ class TrailDetails extends Component {
   this.state = {
     trailData: {},
     trail: {},
+    trailDescription: '',
     videos: [],
     selectedVideo: null,
   }
@@ -42,7 +43,7 @@ videoSearch(term) {
         trailArr.push(arr[i]);
       }
     }
-    this.setState({trail: trailArr[0]});
+    this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description});
     if (trailArr[0]) {
       this.videoSearch(trailArr[0].name + " trail" + ' ' + trailArr[0].city);
     }
@@ -54,6 +55,10 @@ videoSearch(term) {
         return (
             <div className="trail-details-contain">
               <h1>{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+              <h2>Description</h2>
+              <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
+              <h2>Driving Directions</h2>
+              <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
               <h1>Videos</h1>
               <VideoDetail video={this.state.selectedVideo}/>
               <VideoList

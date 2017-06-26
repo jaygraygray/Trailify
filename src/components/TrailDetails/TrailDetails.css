@@ -1,6 +1,18 @@
-.trail-details-contain h1 {
+.trail-details-contain {
   padding-top: 20vh;
   text-align: center;
+}
+
+.trail-description {
+  width: 75%;
+  text-align: center;
+  margin-left: 12%;
+}
+
+.trail-directions {
+  width: 75%;
+  text-align: center;
+  margin-left: 12%;
 }
 
 .video-detail {
@@ -11,7 +23,7 @@
 }
 
 .video-detail iframe {
-  min-width: 50vw;
+  min-width: 59vw;
   min-height: 60vh;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -49,7 +61,10 @@
 }
 
 .video-list-items img {
+  width: 15vw;
+  height: 15vh;
   margin-bottom: 3vh;
+  padding-left: 2vw;
   text-align: center;
 }
 
