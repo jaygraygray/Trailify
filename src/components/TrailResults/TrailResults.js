@@ -3,48 +3,70 @@ import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TrailResults.css';
-import GoogleMap from'./GoogleMap';
-
+import Map from'./GoogleMap';
 class TrailResults extends Component {
-
   constructor(props) {
   super(props);
-
   this.state = {
-    trailData: {}
+    trailData: {},
+    map: null,
+    trailLat: [],
+    trailLon: []
   }
 }
-
+    mapMoved() {
+      console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
+    }
+    mapLoaded(map) {
+      console.log('mapLoaded ' + JSON.stringify(map.getCenter()))
+      if (this.state.map != null)
+      return
+      this.setState({
+        map: map
+      }) 
+    }
     render() {
-
       const TrailData = this.props.info.map((data, i) => (
           <div className="trail-list-items" key={i}><Link to={`/details/${data.unique_id}`}>{data.name}</Link></div>
         ))
-
+      const TrailLat = this.props.info.map((data, i) => (
+          <div className="trail-list-lat" key={i}>{data.lat}</div>
+        ))
+      const TrailLng = this.props.info.map((data, i) => (
+          <div className="trail-list-lon" key={i}>{data.lon}</div>
+        ))
+        const actualLat = parseFloat(TrailLat[0]);
+        const actualLng = parseFloat(TrailLng[0]);
+        console.log(typeof actualLat); 
+        console.log('ACTUALLAT', actualLat); 
         return (
           <section className="results-container">
-
           <div className="maps-results-wrapper">
             <div className="google-maps-contain">
-              <GoogleMap />
+              <Map
+                onDragEnd={this.mapMoved.bind(this)} 
+                center={{lat:actualLat,lng:actualLng}}
+                zoom={8}  
+                containerElement={<div style={{height:100+'%'}}></div>}  
+                mapElement={<div style={{height:100+'%'}}></div>}
+              />
             </div>
-
             <div className="trails-contain">
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
-
+                <div>Lat={this.props.loading ? 'Loading...' : TrailLat}</div>
+                <div>Lon={this.props.loading ? 'Loading...' : TrailLng}</div>
+                <div>{TrailLat[0]}</div>
+                <div>{TrailLng[0]}</div>
             </div>
           </div>
-
           </section>
         );
     }
 }
-
 function mapStateToProps(state) {
     return {
       info: state.trailReducer.trailData,
       loading: state.trailReducer.loading
     }
   }
-
 export default connect(mapStateToProps, {getTrailData})(TrailResults);
