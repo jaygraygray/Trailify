@@ -16,7 +16,6 @@ const VideoDetail = ({video}) => {
       <div className="vid-title-contain">
       <div className="selected-video-title">
         <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
       </div>
       </div>
     </div>
