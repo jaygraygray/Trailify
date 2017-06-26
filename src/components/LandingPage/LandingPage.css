@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   color: silver;
   margin-top: -50vh;
 }
@@ -87,4 +87,33 @@
   color: white;
   font-weight: bold;
   font-size: 10px
+}
+
+.nearby-container{
+  height: 35vh;
+  width: 100%;
+}
+.nearby-header{
+  height: 10vh;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.nearby-content{
+  display: flex;
+  /*justify-content: flex-end;*/
+}
+.nearby-hikes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 50vw;
+}
+.nearby-map-container{
+  height: 20vh;
+  width: 50vw;
 }
