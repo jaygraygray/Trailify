@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Header.css';
 
-
 class Header extends Component {
     render() {
         return (
-            <div>
-              <ul className="navbar">
-                <img src="./white-logo-nav.png" alt=""></img>
-                <li><Link to="/" className="text">HOME</Link></li>
-                <li><Link to="/about" className="text">ABOUT</Link></li>
-                <li>LOGIN/REGISTER</li>
+            <div className="navbar">
+              <img className="logo" src="./white-logo-nav.png" alt=""></img>
+              <ul >
+                <li className="nav-link"><Link to="/" className="text">HOME</Link></li>
+                <li className="nav-link"><Link to="/about" className="text">ABOUT</Link></li>
+                <li className="nav-link">LOGIN/REGISTER</li>
               </ul>
             </div>
         );

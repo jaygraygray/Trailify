@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
+import YTSearch from 'youtube-api-search';
+import VideoList from '../YouTube/video-list';
+import VideoDetail from '../YouTube/video-detail';
+import './TrailDetails.css';
 
-// export const history = createHashHistory();
+const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
+
 
 class TrailDetails extends Component {
 
@@ -11,8 +16,22 @@ class TrailDetails extends Component {
 
   this.state = {
     trailData: {},
-    trail: {}
+    trail: {},
+    trailDescription: '',
+    trailPhoto: '',
+    videos: [],
+    selectedVideo: null,
   }
+
+}
+
+videoSearch(term) {
+  YTSearch({key: API_Key, term: term}, (videos) => {
+    this.setState({
+      videos: videos,
+      selectedVideo: videos[0]
+    });
+  })
 }
 
 
@@ -25,23 +44,28 @@ class TrailDetails extends Component {
         trailArr.push(arr[i]);
       }
     }
-    this.setState({trail: trailArr[0]})
+    this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
+    if (trailArr[0]) {
+      this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
+    }
   }
 
     render() {
+
         return (
-            <div>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <h1>{this.state.trail ?
-                    this.state.trail.name
-                    : 'nope'
-              }</h1>
+            <div className="trail-details-contain">
+              <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+              <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
+              <img className="trail-photo" src={this.state.trailPhoto} alt="Photo Not Found" />
+              <h2>Description</h2>
+              <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
+              <h2>Driving Directions</h2>
+              <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
+              <h1>Videos</h1>
+              <VideoDetail video={this.state.selectedVideo}/>
+              <VideoList
+              onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+              videos={this.state.videos}/>
             </div>
         );
     }

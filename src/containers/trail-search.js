@@ -84,10 +84,6 @@ searchOnClick(event) {
 
   // this.setState({searchCity: '', searchState: '', searchActivity: ''});
 
-  // YouTube Search
-
-
-
 
 }
 
@@ -122,7 +118,6 @@ return (
       <br />
       <button onClick={this.searchOnClick} />
     </div>
-
   </div>
 
 );

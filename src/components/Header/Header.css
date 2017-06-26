@@ -5,20 +5,22 @@
   height: 100px;
   background-color: #403E3E;
   display: flex;
-  justify-content: flex-end;
   position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 img{
   width: 173px;
   height: 91px;
   background:none;
-  line-height:45px;
   float: left;
-  margin-right: 560px;
-  margin-top: 5px;
 }
 
-li {
+.nav-link {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
@@ -33,7 +35,7 @@ li {
   cursor: pointer;
 }
 
-li::after {
+.nav-link::after {
   background-color: #FF8B27;
   content: "";
   width: 0;
@@ -45,21 +47,19 @@ li::after {
 
 }
 
-li:hover {
+.nav-link:hover {
   background-color: #4f4f4f;
 }
 
-li:hover::after {
+.nav-link:hover::after {
   width: 100%;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .text {
   text-decoration: none;
   color: #FFF;
+}
+
+.logo {
+  padding-left: 10px;
 }
