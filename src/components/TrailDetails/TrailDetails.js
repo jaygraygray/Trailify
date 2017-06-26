@@ -46,9 +46,8 @@ videoSearch(term) {
     }
     this.setState({trail: trailArr[0], trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
     if (trailArr[0]) {
-      this.videoSearch(trailArr[0].name + " trail" + ' ' + trailArr[0].city);
+      this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
     }
-    console.log(trailArr[0].name + ' ' + this.props.searchActivity + ' ' + trailArr[0].city);
   }
 
     render() {
@@ -73,11 +72,9 @@ videoSearch(term) {
 }
 
 function mapStateToProps(state) {
-  console.log(state.trailReducer)
     return {
       info: state.trailReducer.trailData,
-      loading: state.trailReducer.loading,
-      searchActivity: state.trailReducer.searchActivity
+      loading: state.trailReducer.loading
     }
   }
 
