@@ -55,27 +55,36 @@ videoSearch(term) {
 
         return (
             <div className="trail-details-contain">
-              <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
-              <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
-              <img className="trail-photo" src={this.state.trailPhoto} alt="Not Found" />
-              <div className="trail-additional-info-contain">
-                <div className="trail-distance">
-                  <h3>DISTANCE <span>(ROUND-TRIP)</span></h3>
-                  <h1>{this.state.trailLength > 0 ? this.state.trailLength + " mi" : 'Trail length not found'}</h1>
-                </div>
-                <div className="trail-weather">
-                  <h3>WEATHER</h3>
-                  <h1>93 &#8457;</h1>
+              <div className="image-wrapper">
+                  <img className="trail-photo" src={ this.state.trailPhoto } alt="Not Found" />
+                    <div className="trail-location-container">
+                      <div className="title-center">
+                        <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+                      <div className="location-end">
+                        <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
+                      </div>
+                      </div>
                 </div>
               </div>
-              <h3 className="trail-name-h2">{this.state.trail.name}</h3>
-              <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
-              <h3 className="trail-directions-h2">Directions</h3>
-              <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
-              <VideoDetail video={this.state.selectedVideo}/>
-              <VideoList
-              onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-              videos={this.state.videos}/>
+             <div className="trail-additional-info-contain">
+               <div>
+                          <div>DISTANCE <span>(ROUND-TRIP)</span></div>
+                          <h1>{this.state.trailLength > 0 ? this.state.trailLength + " mi" : 'Trail length not found'}</h1>
+                        </div>
+                        <div className="trail-weather">
+                          <h3>WEATHER</h3>
+                          <h1>93 &#8457;</h1>
+                        
+                      </div>
+            </div>
+                <h3 className="trail-name-h2">{this.state.trail.name}</h3>
+                <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
+                <h3 className="trail-directions-h2">Directions</h3>
+                <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
+                <VideoDetail video={this.state.selectedVideo}/>
+                <VideoList
+                onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                videos={this.state.videos}/>
             </div>
         );
     }

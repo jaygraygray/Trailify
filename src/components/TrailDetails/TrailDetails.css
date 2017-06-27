@@ -1,53 +1,71 @@
 .trail-details-contain {
-  padding-top: 20vh;
-  text-align: center;
+  padding-top: 7vh;
+  /*text-align: center;*/
   background-color: #FFFFFF;
 }
-
+.image-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .trail-photo {
   width: 100%;
-  height: auto;
-  margin-top: -75vh;
-  z-index: -1000;
-  margin-bottom: 5vh;
-
+  height: 100%;
+  /*z-index: -1000;*/
 }
-
+.trail-location-container{
+  margin-top: -95vh;
+  overflow: hidden;
+}
+.title-center{
+  height: 300px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: nowrap;
+}
+.location-end{
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
 .trail-title {
-  padding-top: 10vh;
   font-size: 12vh;
-  justify-content: flex-start;
   color: white;
   opacity: 0.8;
   font-family: Impact, sans-serif;
+  margin: 0px;
 }
 
 .trail-location {
   font-size: 7vh;
-  justify-content: flex-start;
   color: white;
   opacity: 0.8;
   font-family: AtlasGrotesk, sans-serif;
   font-family: Impact, sans-serif;
+  margin: 0px;
 }
-
 /* Additional Info (Distance and Weather) */
 
 .trail-additional-info-contain {
+  color: #A0A3A5;
   display: flex;
   justify-content: space-around;
-  margin-top: 50%;
-  margin-bottom: 10vh;
-  color: #A0A3A5;
-  justify-content: space-around;
+  margin: 30px 0;
 }
 
 .trail-additional-info-contain h3 span {
   font-size: 11px;
+  margin: 0px;
 }
 
 .trail-additional-info-contain h1 {
   color: #FF9031;
+  margin: 0px;
+}
+.trail-weather h3 {
+  margin: 0;
 }
 
 /* Description and Directions */
@@ -91,7 +109,7 @@
 /* YouTube Videos */
 
 .video-detail {
-  width: 100%;
+  /*width: 100%;*/
   height: auto;
   margin-bottom: 3vh;
   text-align: center;
