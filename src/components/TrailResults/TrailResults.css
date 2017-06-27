@@ -1,15 +1,17 @@
 .results-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
   text-decoration: none;
 }
 
+.maps-results-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 22vh;
+}
+
 .google-maps-contain {
-  /*background-color: silver;*/
   width: 80vw;
   height: 80vh;
-  margin-top: 20vh;
 }
 
 .trails-contain {
@@ -17,20 +19,71 @@
   height: 80vh;
   margin-top: 10vh;
   margin-bottom: 10vh;
-  background-color: blue;
   height: auto;
+  text-decoration: none;
+}
+
+.trails-contain div {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  vertical-align: middle;
 }
 
 .trail-list-items {
-  width: 20vw;
-  height: 20vh;
+  width: 30vw;
+  height: 30vh;
   background-color: white;
   margin: 10px;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 20vh;
+  text-align: center;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.trail-list-items img {
+  width: 30vw;
+  height: 30vh;
+  background-color: white;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.trail-list-items h4 {
+  text-decoration: none !important;
+  color: #A0A3A5;
+  font-family: AtlasGrotesk, sans-serif;
+  font-weight: 300;
+  text-underline: none;
+}
+
+.trail-list-items Link {
+  text-decoration: none !important;
+}
+
+.trail-list-items:hover {
+  opacity: 0.5;
+}
+
+#list-name {
+  margin-top: 2vh;
+  margin-bottom: 2px;
+  color: #A0A3A5;
+  text-transform: uppercase;
+  font-family: AtlasGrotesk, sans-serif;
+  font-weight: 400;
+}
+
+#list-length {
+  margin-top: -2.5vh;
+}
+
+#list-rating {
+  margin-top: 5vh;
+}
+
+#results-link {
   text-decoration: none;
 }
