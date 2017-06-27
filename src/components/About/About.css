@@ -2,11 +2,9 @@
 
 .about-picture{
     height: 90vh;
-    /*background-color: black;*/
     background-image: url("./group-photo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    /*background-position: center;*/
 }
 .about-content-container{
     height: 800px;
@@ -37,4 +35,49 @@
 }
 .about-content{
     width: 75%;
+}
+.linkedin-links{
+  width: 100%;
+  height: 30vh;
+  background-color: #EFF0F4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.chase-link{
+  height: 25vh;
+  width: 275px;
+  background-color: white;
+}
+.taylor-link{
+  height: 25vh;
+  width: 275px;
+  background-color: white;
+}
+.brian-link{
+  height: 25vh;
+  width: 275px;
+  background-color: white;
+}
+.david-link{
+  height: 25vh;
+  width: 275px;
+  background-color: white;
+}
+.chase-photo{
+  width: 100%;
+  height: 100%;
+
+}
+.david-photo{
+  width: 100%;
+  height: 100%;
+}
+.brian-photo{
+  width: 100%;
+  height: 100%;
+}
+.taylor-photo{
+  width: 100%;
+  height: 100%;
 }
