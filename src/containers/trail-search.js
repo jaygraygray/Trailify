@@ -116,7 +116,7 @@ return (
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <br />
-      <button onClick={this.searchOnClick} />
+      <button onClick={this.searchOnClick}>SUBMIT</button>
     </div>
   </div>
 
