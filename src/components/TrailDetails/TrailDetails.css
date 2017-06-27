@@ -10,6 +10,7 @@
   margin-top: -75vh;
   z-index: -1000;
   margin-bottom: 5vh;
+
 }
 
 .trail-title {
@@ -17,7 +18,7 @@
   font-size: 12vh;
   justify-content: flex-start;
   color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   font-family: Impact, sans-serif;
 }
 
@@ -25,7 +26,7 @@
   font-size: 7vh;
   justify-content: flex-start;
   color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   font-family: AtlasGrotesk, sans-serif;
   font-family: Impact, sans-serif;
 }
@@ -34,9 +35,10 @@
 .trail-additional-info-contain {
   display: flex;
   justify-content: space-around;
-  margin-top: 103vh;
+  margin-top: 50%;
   margin-bottom: 10vh;
   color: #A0A3A5;
+  justify-content: space-around;
 }
 
 .trail-additional-info-contain h3 span {
@@ -137,13 +139,15 @@
   text-align: center;
   font-family: AtlasGrotesk, sans-serif;
   font-weight: 300;
+  list-style-type: none;
 }
 
 .video-list-items img {
   width: 15vw;
   height: 15vh;
   margin-bottom: 3vh;
-  padding-left: 2vw;
+  margin-top: 2vh;
+  margin-left: 11%;
   text-align: center;
 }
 
