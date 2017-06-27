@@ -6,7 +6,7 @@ const GET_DATA_FULFILLED = 'GET_DATA_FULFILLED';
 
 const initialState = {
   trailData: [],
-  loading: false,
+  loading: false
 }
 
 export default function reducer(state = initialState, action) {
