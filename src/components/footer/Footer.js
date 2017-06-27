@@ -34,7 +34,7 @@ class Footer extends Component {
                   <div className="contact-us">
                       <h2 className="footer-headline">Contact Us</h2>
                         <div className="contact-info">
-                          <div><a href="mailto:tgriffith14@hotmail.com?Subject=Hello" target="_top" className="contact-names">Taylor <span className="email-text">&nbsp;&nbsp;tgriffith14@hotmail.com</span></a></div>
+                          <div><a href="mailto:tgriffith14@hotmail.com?Subject=Hello" target="_top" className="contact-names">Taylor <span className="email-text">&nbsp;&nbsp;tsgriffith91@gmail.com</span></a></div>
                           <div><a href="mailto:chasederr@gmail.com?Subject=Hello" target="_top" className="contact-names">Chase <span className="email-text">&nbsp;&nbsp;chasederr@gmail.com</span></a></div>
                           <div><a href="mailto:davidtagholmes@gmail.com?Subject=Hello" target="_top" className="contact-names">David <span className="email-text">&nbsp;&nbsp;&nbsp;davidtagholmes@gmail.com</span></a></div>
                           <div><a href="mailto:briandinhtran@outlook.com?Subject=Hello" target="_top" className="contact-names">Brian <span className="email-text">&nbsp;&nbsp;&nbsp;&nbsp;brianinhtran@outlook.com</span></a></div>

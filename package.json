@@ -15,12 +15,13 @@
     "react-dom": "^15.6.1",
     "react-google-maps": "^6.3.0",
     "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-router-scroll": "^0.4.2",
     "redux": "^3.7.0",
     "redux-promise-middleware": "^4.3.0",
     "session": "^0.1.0",
     "youtube-api-search": "^0.0.5"
-
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
