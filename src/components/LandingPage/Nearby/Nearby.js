@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NearbyHike from './NearbyHike';
 import HomeMap from './HomeMap';
+import '../LandingPage.css';
 
 class Nearby extends Component {
     render() {
