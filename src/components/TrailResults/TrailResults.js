@@ -35,10 +35,13 @@ class TrailResults extends Component {
       const TrailLng = this.props.info.map((data, i) => (
           <div className="trail-list-lon" key={i}>{data.lon}</div>
         ))
-        const actualLat = parseFloat(TrailLat[0]);
-        const actualLng = parseFloat(TrailLng[0]);
-        console.log(typeof actualLat); 
-        console.log('ACTUALLAT', actualLat); 
+        console.log("TRAIL-LAT",TrailLat[0].props.children);
+        console.log(TrailLng);
+        const actualLat = TrailLat[0].props.children;
+        const actualLng = parseInt(TrailLng[0]);
+        // console.log(typeof actualLat); 
+        // console.log('ACTUALLAT', actualLat);
+
         return (
           <section className="results-container">
           <div className="maps-results-wrapper">
