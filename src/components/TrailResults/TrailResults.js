@@ -32,7 +32,7 @@ class TrailResults extends Component {
           data.lat
         ))
       const TrailLng = this.props.info.map((data, i) => (
-          <div className="trail-list-lon" key={i}>{data.lon}</div>
+          data.lon
         ))
         // console.log("TRAIL-LAT",TrailLat[0].props.children);
         // console.log(TrailLng);
@@ -41,13 +41,19 @@ class TrailResults extends Component {
         console.log('CenterTrail', centerTrail)
         const latObj = TrailLat[0];
         const actualLat = latObj;
-        console.log(actualLat);
-        const center = TrailLat[0] + TrailLng[0];
-        const isolated = center[0]
-        console.log(center);
-        console.log(isolated);
+        // console.log(actualLat);
+        const lngObj = TrailLng[0];
+        const actualLng = lngObj;
         // console.log(actualLng);
-        console.log(latObj); 
+        const center= (actualLat, actualLng);
+        console.log(center);
+        
+        // const center = TrailLat[0] + TrailLng[0];
+        // const isolated = center[0]
+        // console.log(center);
+        // console.log(isolated);
+        // console.log(actualLng);
+        // console.log(latObj); 
         // console.log('ACTUALLNG', actualLng);
 
         return (
@@ -55,11 +61,12 @@ class TrailResults extends Component {
           <div className="maps-results-wrapper">
             <div className="google-maps-contain">
               <Map
-                onDragEnd={this.mapMoved.bind(this)} 
-                center={{}}
+                onDragEnd={this.mapMoved.bind(this)}
+                center={{lat:actualLat, lng:actualLng}} 
                 zoom={8}  
                 containerElement={<div style={{height:100+'%'}}></div>}  
                 mapElement={<div style={{height:100+'%'}}></div>}
+                gestureHandling={'greedy'}
               />
             </div>
             <div className="trails-contain">
