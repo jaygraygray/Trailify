@@ -31,7 +31,7 @@ passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, ref
 app.get('/auth', passport.authenticate('auth0')); //START
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-  successRedirect: '/me',
+  successRedirect: '/profile',
   failureRedirect: '/login'
 }))
 
@@ -44,10 +44,6 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 })
 
-app.get('/me', function(req, res) {
-  res.send(req.user)
-})
-
 //=========================== Database ==============================//
 
 const massiveInstance = massive.connectSync(config_server.massiveConnection)
@@ -57,9 +53,12 @@ const db = app.get('db')
 //========================== Controller =============================//
 
 const trailsCtrl = require('./controllers/trailsCtrl')
+const userCtrl = require('./controllers/userCtrl')
 
-//========================= Get Request =============================//
 
+//========================= Get Requests =============================//
+
+app.get('/me', userCtrl.me)
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
 
 //======================= Listening Port ============================//

@@ -1,11 +1,11 @@
-import * as dataimport from '../services/traildata';
+import * as userlogin from '../services/user';
 
 const GET_DATA = 'GET_DATA';
 const GET_DATA_PENDING = 'GET_DATA_PENDING';
 const GET_DATA_FULFILLED = 'GET_DATA_FULFILLED';
 
 const initialState = {
-  trailData: [],
+  userData: [],
   loading: false
 }
 
@@ -15,16 +15,16 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {loading: true})
 
     case GET_DATA_FULFILLED:
-      return Object.assign({}, state, {loading: false, trailData: action.payload})
+      return Object.assign({}, state, {loading: false, userData: action.payload})
 
     default:
       return state
   }
 }
 
-export function getTrailData(city, state, activity) {
+export function getUserInfo()) {
   return {
     type: GET_DATA,
-    payload: dataimport.getTrailData(city, state, activity)
+    payload: userlogin.getUserInfo()
   }
 }

@@ -10,9 +10,6 @@ class TrailResults extends Component {
   constructor(props) {
   super(props);
 
-  this.state = {
-    trailData: {}
-  }
 }
 
     render() {
