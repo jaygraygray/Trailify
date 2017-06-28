@@ -9,9 +9,8 @@ class TrailResults extends Component {
   super(props);
   this.state = {
     trailData: {},
-    map: null,
-    trailLat: [],
-    trailLon: []
+    map: null
+    
   }
 }
     mapMoved() {
@@ -30,17 +29,26 @@ class TrailResults extends Component {
           <div className="trail-list-items" key={i}><Link to={`/details/${data.unique_id}`}>{data.name}</Link></div>
         ))
       const TrailLat = this.props.info.map((data, i) => (
-          <div className="trail-list-lat" key={i}>{data.lat}</div>
+          data.lat
         ))
       const TrailLng = this.props.info.map((data, i) => (
           <div className="trail-list-lon" key={i}>{data.lon}</div>
         ))
-        console.log("TRAIL-LAT",TrailLat[0].props.children);
-        console.log(TrailLng);
-        const actualLat = TrailLat[0].props.children;
-        const actualLng = parseInt(TrailLng[0]);
-        // console.log(typeof actualLat); 
-        // console.log('ACTUALLAT', actualLat);
+        // console.log("TRAIL-LAT",TrailLat[0].props.children);
+        // console.log(TrailLng);
+        // console.log(this.props.TrailData);
+        const centerTrail = this.props.info[0]
+        console.log('CenterTrail', centerTrail)
+        const latObj = TrailLat[0];
+        const actualLat = latObj;
+        console.log(actualLat);
+        const center = TrailLat[0] + TrailLng[0];
+        const isolated = center[0]
+        console.log(center);
+        console.log(isolated);
+        // console.log(actualLng);
+        console.log(latObj); 
+        // console.log('ACTUALLNG', actualLng);
 
         return (
           <section className="results-container">
@@ -48,7 +56,7 @@ class TrailResults extends Component {
             <div className="google-maps-contain">
               <Map
                 onDragEnd={this.mapMoved.bind(this)} 
-                center={{lat:actualLat,lng:actualLng}}
+                center={{}}
                 zoom={8}  
                 containerElement={<div style={{height:100+'%'}}></div>}  
                 mapElement={<div style={{height:100+'%'}}></div>}
@@ -56,8 +64,6 @@ class TrailResults extends Component {
             </div>
             <div className="trails-contain">
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
-                <div>Lat={this.props.loading ? 'Loading...' : TrailLat}</div>
-                <div>Lon={this.props.loading ? 'Loading...' : TrailLng}</div>
                 <div>{TrailLat[0]}</div>
                 <div>{TrailLng[0]}</div>
             </div>
