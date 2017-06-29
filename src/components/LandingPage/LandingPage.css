@@ -90,6 +90,11 @@
   font-size: 10px
 }
 
+.search-input button:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
 .nearby-container{
   height: 35vh;
   width: 100%;
