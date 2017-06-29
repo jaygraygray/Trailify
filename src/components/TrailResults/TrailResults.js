@@ -37,16 +37,15 @@ class TrailResults extends Component {
         // console.log("TRAIL-LAT",TrailLat[0].props.children);
         // console.log(TrailLng);
         // console.log(this.props.TrailData);
-        const centerTrail = this.props.info[0]
-        console.log('CenterTrail', centerTrail)
+        // const centerTrail = this.props.info[0]
+        // console.log('CenterTrail', centerTrail)
         const latObj = TrailLat[0];
-        const actualLat = latObj;
-        // console.log(actualLat);
+        let actualLat = latObj;
         const lngObj = TrailLng[0];
-        const actualLng = lngObj;
+        let actualLng = lngObj;
+        // console.log(actualLat);
         // console.log(actualLng);
-        const center= (actualLat, actualLng);
-        console.log(center);
+        // const center= (actualLat, actualLng);
         
         // const center = TrailLat[0] + TrailLng[0];
         // const isolated = center[0]
@@ -61,18 +60,19 @@ class TrailResults extends Component {
           <div className="maps-results-wrapper">
             <div className="google-maps-contain">
               <Map
-                onDragEnd={this.mapMoved.bind(this)}
-                center={{lat:actualLat, lng:actualLng}} 
-                zoom={8}  
-                containerElement={<div style={{height:100+'%'}}></div>}  
-                mapElement={<div style={{height:100+'%'}}></div>}
-                gestureHandling={'greedy'}
+              onMapMounted={this.handleMapMounted}
+                center={{lat: actualLat, lng: actualLng}}
+                zoom={8}
+                 containerElement={
+                    <div style={{ height: `0%` }} />
+                      }
+                  mapElement={
+                    <div style={{ height: `100%` }} />
+                      }  
               />
             </div>
             <div className="trails-contain">
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
-                <div>{TrailLat[0]}</div>
-                <div>{TrailLng[0]}</div>
             </div>
           </div>
           </section>
