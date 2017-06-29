@@ -25,14 +25,18 @@ componentDidMount() {
 
         return (
           <section className="profile-container">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-            <h1 className="welcome-message">Hello, {this.props.userInfo.displayName}!</h1>
-            <img src={this.props.userInfo.picture} />
+          <div className="user-contain">
+            <div className="user-info">
+              <img className="profile-picture" src={this.props.userInfo.picture} />
+              <h1 className="welcome-message">{this.props.userInfo.displayName ? "Hello, "+this.props.userInfo.displayName + "!" : ""}</h1>
+            </div>
+          </div>
+          <div className="favorite-bar">
+            <div className="favorite-title">Favorite Trails</div>
+          </div>
+          <div className="favorite-trails-container">
+
+          </div>
           </section>
         );
     }
