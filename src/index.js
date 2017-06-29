@@ -27,7 +27,7 @@ ReactDOM.render(
           <Route path="/login" component={ UserLogin } />
           <Route path="/profile" component={ UserProfile } />
           <Route path="/about" component={ About } />
-          <Route path="/" component={ LandingPage }/>
+          <Route exact path="/" component={ LandingPage }/>
         </Switch>
           <Route component={ Footer }/>
     </div>
