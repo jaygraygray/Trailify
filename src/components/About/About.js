@@ -24,16 +24,16 @@ class About extends Component {
                 </main>
                 <div className="linkedin-links">
                   <div className="chase-link">
-                    <a href="https://www.linkedin.com/in/chasederr/"><img className="chase-photo" src={chase}/>CHASE DERR</a>
+                    <a href="https://www.linkedin.com/in/chasederr/"><img className="chase-photo" src={chase}/><p>CHASE DERR</p></a>
                   </div>
                   <div className="taylor-link">
-                    <a href="https://www.linkedin.com/in/tsgriffith/"><img className="taylor-photo" src={taylor}/>TAYLOR GRIFFITH</a>
+                    <a href="https://www.linkedin.com/in/tsgriffith/"><img className="taylor-photo" src={taylor}/><p>TAYLOR GRIFFITH</p></a>
                   </div>
                   <div className="brian-link">
-                    <a href="https://www.linkedin.com/in/briandinhtran/"><img className="brian-photo" src={brian}/>BRIAN TRAN</a>
+                    <a href="https://www.linkedin.com/in/briandinhtran/"><img className="brian-photo" src={brian}/><p>BRIAN TRAN</p></a>
                   </div>
                   <div className="david-link">
-                    <a href="https://linkedin.com/in/davidtagholmes"><img className="david-photo" src={david}/>DAVID HOLMES</a>
+                    <a href="https://linkedin.com/in/davidtagholmes"><img className="david-photo" src={david}/><p>DAVID HOLMES</p></a>
                   </div>
                 </div>
             </section>
