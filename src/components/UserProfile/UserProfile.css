@@ -1,0 +1,49 @@
+.profile-container{
+
+}
+.user-contain{
+width: 100%;
+height: 50vh;
+background-color: #ffffff;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.user-info{
+  /*display: flex;
+  justify-content: center;*/
+}
+.profile-picture{
+width: 29vh;
+height: auto;
+background: none;
+border-radius: 50%;
+margin-left: 82px;
+margin-top: 60px;
+}
+.welcome-message{
+  margin-top: 10px;
+  color: #A0A3A5;
+  font-family: AtlasGrotesk, sans-serif;
+  font-weight: bold;
+  font-size: 4vh;
+}
+.favorite-bar{
+  height:10vh;
+  width: 100%;
+  background-color: #ff9031;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.favorite-title{
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+.favorite-trails-container{
+  width: 100%;
+  height: 50vh;
+  background-color: white;
+  display: inline-block;
+}
