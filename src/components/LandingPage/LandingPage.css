@@ -55,7 +55,8 @@
   text-align: center;
   outline: none;
   color: white;
-  font-size: 20px
+  font-size: 20px;
+  border-radius: 9%;
 
 }
 
@@ -101,6 +102,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  font-size: 22px;
 }
 .nearby-content{
   display: flex;
@@ -125,6 +127,14 @@
   height: 10vh;
   background-color: crimson;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.featured-text{
+  width: 180px;
+  font-size: 22px;
+  font-weight: bold;
 }
 .hexagon{
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -185,6 +195,6 @@
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   height: 7vh;
   width: 20vw;
-  background-color: #c0c0c0;
+  background-color: #1D1D1D;
   margin-top: -30px;
 }

@@ -8,7 +8,7 @@ class Featured extends Component {
             <section>
                 <div className="featured-container">
                     <div className="header-container">
-                        <div className="featured-header">Featured Hikes</div>
+                        <div className="featured-header"><div className="featured-text">Featured Hikes</div></div>
                     </div>
                     <div className="top-triangle-container">
                         <div className="top-triangle"></div>
