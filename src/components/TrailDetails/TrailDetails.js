@@ -70,8 +70,6 @@ videoSearch(term) {
       }
       else {
 
-      console.log(localStorage.getItem('trailStorage'))
-
       return (
           <div className="trail-details-contain">
             <div className="image-wrapper">

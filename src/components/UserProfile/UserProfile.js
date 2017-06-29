@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getUserInfo } from '../../ducks/user';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './UserProfile.css';
 
 
 class UserProfile extends Component {
@@ -10,15 +11,28 @@ class UserProfile extends Component {
   super(props);
 
   this.state = {
-    userData: {}
+    user: {}
   }
+
+}
+
+componentDidMount() {
+  this.props.getUserInfo();
+  this.setState({user: this.props.userInfo})
 }
 
     render() {
 
         return (
           <section className="profile-container">
-            <div className="welcome-message">Hello, {this.props.info}!</div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+            <h1 className="welcome-message">Hello, {this.props.userInfo.displayName}!</h1>
+            <img src={this.props.userInfo.picture} />
           </section>
         );
     }

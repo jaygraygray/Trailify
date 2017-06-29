@@ -1,8 +1,8 @@
 import * as userlogin from '../services/user';
 
-const GET_DATA = 'GET_DATA';
-const GET_DATA_PENDING = 'GET_DATA_PENDING';
-const GET_DATA_FULFILLED = 'GET_DATA_FULFILLED';
+const GET_USER = 'GET_USER';
+const GET_USER_PENDING = 'GET_USER_PENDING';
+const GET_USER_FULFILLED = 'GET_USER_FULFILLED';
 
 const initialState = {
   userData: [],
@@ -11,10 +11,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case GET_DATA_PENDING:
+    case GET_USER_PENDING:
       return Object.assign({}, state, {loading: true})
 
-    case GET_DATA_FULFILLED:
+    case GET_USER_FULFILLED:
+      console.log('getting user data', action.payload)
       return Object.assign({}, state, {loading: false, userData: action.payload})
 
     default:
@@ -22,9 +23,9 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-export function getUserInfo()) {
+export function getUserInfo() {
   return {
-    type: GET_DATA,
+    type: GET_USER,
     payload: userlogin.getUserInfo()
   }
 }
