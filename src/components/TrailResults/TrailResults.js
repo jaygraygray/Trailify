@@ -3,7 +3,8 @@ import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TrailResults.css';
-import Map from'./GoogleMap';
+import Map from './GoogleMap';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 var delicatearch = require('./delicatearch.jpg')
 
@@ -14,11 +15,15 @@ class TrailResults extends Component {
 
   this.state = {
     trailData: {},
-    map: null
-    
+    map: null,
+  }
+}
+
+  componentDidMount() {
+    document.body.scrollTop = 0;
   }
 
-}
+
     mapMoved() {
       console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
     }
@@ -28,8 +33,9 @@ class TrailResults extends Component {
       return
       this.setState({
         map: map
-      }) 
+      })
     }
+
     render() {
 
       const filteredName = (str) => {
@@ -40,12 +46,12 @@ class TrailResults extends Component {
 
           <div className="trail-list-items" key={i}>
             <Link id="results-link" to={`/details/${data.unique_id}`}>
-            
             <h2 id="list-name">{filteredName(data.name)}</h2>
             <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
             <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
             <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
+
             </Link>
           </div>
         ))
@@ -66,11 +72,11 @@ class TrailResults extends Component {
             <div className="google-maps-contain">
               <Map
                 center={{lat: actualLat, lng: actualLng}}
-                zoom={8}  
+                zoom={8}
               />
             </div>
             <div className="trails-contain">
-                <div>{this.props.loading ? 'Loading...' : TrailData}</div>
+                <div>{this.props.loading ? <LoadingScreen /> : TrailData}</div>
             </div>
           </div>
           </section>

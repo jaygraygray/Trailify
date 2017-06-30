@@ -6,6 +6,8 @@ import VideoList from '../YouTube/video-list';
 import VideoDetail from '../YouTube/video-detail';
 import './TrailDetails.css';
 import { Redirect } from 'react-router-dom';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
+
 
 const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
 
@@ -42,6 +44,9 @@ videoSearch(term) {
 
   componentDidMount() {
 
+    document.body.scrollTop = 0;
+
+
     const arr = this.props.info;
     const trailArr = [];
     const {id} = this.props.match.params;
@@ -67,11 +72,13 @@ videoSearch(term) {
         '&amp;': "and",
         '<br />': '',
         '&lt;br /&gt;': ' ',
-        '&quot;Y&quot;': ''
+        '&quot;Y&quot;': '',
+        '&quot;': '"',
+        '&lt;BR&gt;&lt;BR&gt;': ''
       }
 
       const descStr = trailArr[0].activities[0].description;
-      const filteredDesc = descStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;/gi, function(matched) {
+      const filteredDesc = descStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;|&quot;|&lt;BR&gt;&lt;BR&gt;/gi, function(matched) {
         return descReplaceObj[matched];
       });
 
@@ -81,11 +88,14 @@ videoSearch(term) {
         '&amp;': "and",
         '<br />': '',
         '&lt;br /&gt;': ' ',
-        '&quot;Y&quot;': ''
+        '&quot;Y&quot;': '',
+        '&quot;': '"',
+        '&lt;BR&gt;&lt;BR&gt;': ''
+
       }
 
       const dirStr = trailArr[0].directions;
-      const filteredDir = dirStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;/gi, function(matched) {
+      const filteredDir = dirStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;|&quot;|&lt;BR&gt;&lt;BR&gt;/gi, function(matched) {
         return dirReplaceObj[matched];
       });
 
@@ -112,7 +122,7 @@ videoSearch(term) {
       }
 
       return (
-          <div className="trail-details-contain">
+          <div id="trail-details-contain">
             <div className="image-wrapper">
                 <img className="trail-photo" src={ this.state.trailPhoto } alt="Not Found" />
                   <div className="trail-location-container">
@@ -140,9 +150,9 @@ videoSearch(term) {
               <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
               <VideoDetail video={this.state.selectedVideo}/>
-              <VideoList
+              {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-              videos={this.state.videos}/>
+              videos={this.state.videos}/> : <LoadingScreen />}
           </div>
     );
   }
