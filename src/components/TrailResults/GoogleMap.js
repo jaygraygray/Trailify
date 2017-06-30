@@ -8,12 +8,20 @@ class Map extends Component {
     })
   }
   componentDidUpdate() {
+    var mapCenter = { lat:this.props.center.lat, lng: this.props.center.lng }
+    // var bounds = new google.maps.LatLngBounds();
     var myMap = document.getElementById("map")
     myMap.innerHTML = ""
-    new google.maps.Map(myMap,{
-      center: { lat:this.props.center.lat, lng: this.props.center.lng },
+    var newMap = new google.maps.Map(myMap,{
+      center: mapCenter,
       zoom: 8
   })
+  var marker = new google.maps.Marker({
+    position: mapCenter,
+    map: newMap
+  })
+  //   bounds.extend(position);
+  // marker.setMap(myMap);
   }
   
   render() {
