@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TrailResults.css';
 import Map from'./GoogleMap';
-import GoogleMap from'./GoogleMap';
 
 var delicatearch = require('./delicatearch.jpg')
 
@@ -43,7 +42,7 @@ class TrailResults extends Component {
             <Link id="results-link" to={`/details/${data.unique_id}`}>
             
             <h2 id="list-name">{filteredName(data.name)}</h2>
-            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} />
+            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
             <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
             <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
@@ -56,48 +55,24 @@ class TrailResults extends Component {
       const TrailLng = this.props.info.map((data, i) => (
           data.lon
         ))
-        // console.log("TRAIL-LAT",TrailLat[0].props.children);
-        // console.log(TrailLng);
-        // console.log(this.props.TrailData);
-        // const centerTrail = this.props.info[0]
-        // console.log('CenterTrail', centerTrail)
         const latObj = TrailLat[0];
         let actualLat = latObj;
         const lngObj = TrailLng[0];
         let actualLng = lngObj;
-        // console.log(actualLat);
-        // console.log(actualLng);
-        // const center= (actualLat, actualLng);
-        
-        // const center = TrailLat[0] + TrailLng[0];
-        // const isolated = center[0]
-        // console.log(center);
-        // console.log(isolated);
-        // console.log(actualLng);
-        // console.log(latObj); 
-        // console.log('ACTUALLNG', actualLng);
 
         return (
           <section className="results-container">
           <div className="maps-results-wrapper">
             <div className="google-maps-contain">
               <Map
-              onMapMounted={this.handleMapMounted}
                 center={{lat: actualLat, lng: actualLng}}
-                zoom={8}
-                 containerElement={
-                    <div style={{ height: `100%` }} />
-                      }
-                  mapElement={
-                    <div style={{ height: `100%` }} />
-                      }  
+                zoom={8}  
               />
             </div>
             <div className="trails-contain">
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
             </div>
           </div>
-
           </section>
         );
     }
