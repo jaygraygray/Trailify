@@ -3,26 +3,22 @@ import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TrailResults.css';
-<<<<<<< HEAD
 import Map from'./GoogleMap';
-=======
 import GoogleMap from'./GoogleMap';
 
 var delicatearch = require('./delicatearch.jpg')
 
->>>>>>> master
+
 class TrailResults extends Component {
   constructor(props) {
   super(props);
-<<<<<<< HEAD
+
   this.state = {
     trailData: {},
     map: null
     
   }
-=======
 
->>>>>>> master
 }
     mapMoved() {
       console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
@@ -36,16 +32,11 @@ class TrailResults extends Component {
       }) 
     }
     render() {
-<<<<<<< HEAD
-=======
 
       const filteredName = (str) => {
         let filtered = str.replace(/&amp;/gi, "and")
         return filtered;
        }
-
-
->>>>>>> master
       const TrailData = this.props.info.map((data, i) => (
 
           <div className="trail-list-items" key={i}>
