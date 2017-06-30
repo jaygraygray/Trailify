@@ -22,8 +22,6 @@ class TrailDetails extends Component {
     trailDescription: '',
     trailPhoto: '',
     trailLength: '',
-    trailName: '',
-    trailDirections: '',
     videos: [],
     selectedVideo: null,
     shouldRedirect: false,
@@ -62,57 +60,12 @@ videoSearch(term) {
     }
 
 
-
-      // Name filter //
-
-      const nameStr = trailArr[0].name;
-      const filteredName = nameStr.replace(/&amp;/gi, "and");
-
-      // Description filter //
-
-      const descReplaceObj = {
-        '&amp;': "and",
-        '<br />': '',
-        '&lt;br /&gt;': ' ',
-        '&quot;Y&quot;': ''
-      }
-
-      const descStr = trailArr[0].activities[0].description;
-      const filteredDesc = descStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;/gi, function(matched) {
-        return descReplaceObj[matched];
-      });
-
-      // Directions filter //
-
-      const dirReplaceObj = {
-        '&amp;': "and",
-        '<br />': '',
-        '&lt;br /&gt;': ' ',
-        '&quot;Y&quot;': ''
-      }
-
-      const dirStr = trailArr[0].directions;
-      const filteredDir = dirStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;/gi, function(matched) {
-        return dirReplaceObj[matched];
-      });
-
-      // Set state with filtered info //
-
-      this.setState({trail: trailArr[0], trailName: filteredName, trailDescription: filteredDesc, trailDirections: filteredDir, trailLength: trailArr[0].activities[0].length, trailPhoto: trailArr[0].activities[0].thumbnail});
-      this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
-    }
-
-    // On refresh, pull local storage and reroute to home (below) //
-
-
     else if (trailArr.length < 1) {
       this.setState({trail: localStorage.getItem('trailStorage'), shouldRedirect: true})
     }
   }
 
     render() {
-
-      // Reroute to home on refresh //
 
       if (this.state.shouldRedirect) {
         return <Redirect to="/" />
@@ -122,14 +75,13 @@ videoSearch(term) {
       console.log('this.state.weather: ', this.state.weather)
 
 
-
       return (
           <div className="trail-details-contain">
             <div className="image-wrapper">
                 <img className="trail-photo" src={ this.state.trailPhoto } alt="Not Found" />
                   <div className="trail-location-container">
                     <div className="title-center">
-                      <h1 className="trail-title">{this.state.trailName}</h1>
+                      <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
                     <div className="location-end">
                       <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
                     </div>
@@ -145,20 +97,20 @@ videoSearch(term) {
                         <h3>WEATHER</h3>
                         <h1>{Math.round(this.state.weather)}°F</h1>
 
-
                     </div>
           </div>
-              <h3 className="trail-name-h2">{this.state.trailName}</h3>
-              <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription  : 'No Description Found'}</h4>
+              <h3 className="trail-name-h2">{this.state.trail.name}</h3>
+              <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
-              <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
+              <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
               <VideoDetail video={this.state.selectedVideo}/>
               <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
               videos={this.state.videos}/>
           </div>
-    );
+      );
   }
+}
 }
 
 function mapStateToProps(state) {

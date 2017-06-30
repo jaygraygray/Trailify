@@ -8,7 +8,7 @@ import featuredReducer from './featured';
 
 const reducer = combineReducers({
   trailReducer: dataReducer,
-  weatherReducer: weatherReducer
+  weatherReducer: weatherReducer,
   userLoginReducer: userReducer,
   featuredReducer: featuredReducer
 })
