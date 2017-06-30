@@ -2,34 +2,6 @@
 import { default as React, Component, } from "react";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
-// const SimpleMapExampleGoogleMap = withGoogleMap( props => {
-//     console.log("here new props are used", props)
-//     return <GoogleMap
-//       defaultZoom={15}
-//       defaultCenter={new google.maps.LatLng(props.lat, props.lng)}
-//     />
-//  }
-// );
-const TrailMap = withGoogleMap( props => {
-const markers = props.markers || []
-console.log(props)
-  return(
-  
-        <GoogleMap
-            ref={props.onMapMounted}
-            defaultZoom={props.zoom}
-            defaultCenter={new google.maps.LatLng({lat:props.lat, lng:props.lng})}
-            
-        >
-            {markers.map((marker, index) => (
-              <Marker {...marker} />
-              )
-            )}
-        </GoogleMap>
-  )
-  }
-);
-
 class Map extends Component {
   constructor(props){
     super(props);
@@ -57,22 +29,28 @@ handleMapMounted(map) {
       lng: nextProps.center.lng,
     });
   }
-
-  componentDidUpdate(nextProps, prevState) {
-    console.log('props', nextProps.center.lat);
-    if (nextProps.center.lat !== this.state.lat){
-      this.setState({
-      lat: nextProps.center.lat || 40.233845,
-      lng: nextProps.center.lng || -111.658531
-    })
-    }
-    console.log('this.state', this.state);
-  }
   mapMoved() {
     console.log('mapMoved: ')
   }
+
+  componentDidMount(){
+    new google.maps.Map(document.getElementById("map"),{
+      center: {lat: "", lng: ""},
+      zoom: 8
+    })
+  }
+  componentDidUpdate() {
+    var myMap = document.getElementById("map")
+    myMap.innerHTML = ""
+    new google.maps.Map(myMap,{
+      center: { lat:this.props.center.lat, lng: this.props.center.lng },
+      zoom: 8
+  }
+      )
+  }
   
   render() {
+    const markers = this.props.markers || []
     console.log('RENDER', this.props);    // const center = (‎40.758701, -111.876183)
     // lat: 40.32631, lng: -111.64272
     // const actualLat= this.props.lat || 40.32631
@@ -80,25 +58,14 @@ handleMapMounted(map) {
 
     console.log(this.state)
     return (
-      <div ref="map">
-        <TrailMap
-        onMapMounted={this.handleMapMounted}
-        lat={this.state.lat}
-        lng={this.state.lng}
-        zoom={this.props.zoom}
-       containerElement={
-        <div style={{ height: `500px` }} />
-          }
-        mapElement={
-          <div style={{ height: `500px` }} />
-          }
-         />
-         </div>
+      <div id="map">
+         
+      </div>
   
     );
   }
 }
-export default withGoogleMap(Map);
+export default Map;
 /*
  * Sample From: https://developers.google.com/maps/documentation/javascript/examples/map-simple
  */

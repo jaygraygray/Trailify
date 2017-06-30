@@ -64,7 +64,7 @@ class TrailResults extends Component {
                 center={{lat: actualLat, lng: actualLng}}
                 zoom={8}
                  containerElement={
-                    <div style={{ height: `0%` }} />
+                    <div style={{ height: `100%` }} />
                       }
                   mapElement={
                     <div style={{ height: `100%` }} />
