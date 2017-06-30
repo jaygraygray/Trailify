@@ -1,14 +1,6 @@
 /* global google */
 import { default as React, Component, } from "react";
-
 class Map extends Component {
-    componentWillReceiveProps(nextProps) {
-    this.setState({
-      lat: nextProps.center.lat,
-      lng: nextProps.center.lng,
-    });
-  }
-
   componentDidMount(){
     new google.maps.Map(document.getElementById("map"),{
       center: {lat: "", lng: ""},
@@ -16,18 +8,28 @@ class Map extends Component {
     })
   }
   componentDidUpdate() {
+    var mapCenter = { lat:this.props.center.lat, lng: this.props.center.lng }
+    // var bounds = new google.maps.LatLngBounds();
     var myMap = document.getElementById("map")
     myMap.innerHTML = ""
-    new google.maps.Map(myMap,{
-      center: { lat:this.props.center.lat, lng: this.props.center.lng },
+    var newMap = new google.maps.Map(myMap,{
+      center: mapCenter,
       zoom: 8
+  })
+  var marker = new google.maps.Marker({
+    position: mapCenter,
+    map: newMap
+  })
+  //   bounds.extend(position);
+  // marker.setMap(myMap);
   }
-      )
-  }
+  
   render() {
     return (
       <div id="map">
+         
       </div>
+  
     );
   }
 }
