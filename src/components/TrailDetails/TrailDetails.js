@@ -20,13 +20,15 @@ class TrailDetails extends Component {
   this.state = {
     trailData: {},
     trail: {},
+    trailName: '',
     trailDescription: '',
     trailPhoto: '',
     trailLength: '',
     videos: [],
     selectedVideo: null,
     shouldRedirect: false,
-    weather: []
+    weather: [],
+    trailDirections: '',
   }
 
 }
@@ -72,7 +74,7 @@ videoSearch(term) {
         '<br />': '',
         '&lt;br /&gt;': ' ',
         '&quot;Y&quot;': '',
-        '&quot;': '"',
+        '&quot;': '',
         '&lt;BR&gt;&lt;BR&gt;': ''
       }
 
@@ -88,7 +90,7 @@ videoSearch(term) {
         '<br />': '',
         '&lt;br /&gt;': ' ',
         '&quot;Y&quot;': '',
-        '&quot;': '"',
+        '&quot;': '',
         '&lt;BR&gt;&lt;BR&gt;': ''
 
       }
@@ -100,9 +102,7 @@ videoSearch(term) {
 
       // Set state with filtered info //
 
-      this.setState({trail: trailArr[0], trailName: filteredName, trailDescription: filteredDesc, trailDirections: filteredDir, trailLength: trailArr[0].activities[0].length, trailPhoto: trailArr[0].activities[0].thumbnail});
-
-      this.setState({weather: this.props.weather.list[0].main.temp, trail: trailArr[0], trailLength: trailArr[0].activities[0].length, trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
+      this.setState({weather: this.props.weather.list[0].main.temp, trail: trailArr[0], trailName: filteredName, trailDescription: filteredDesc, trailDirections: filteredDir, trailLength: trailArr[0].activities[0].length, trailPhoto: trailArr[0].activities[0].thumbnail});
       this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
     }
 
@@ -128,7 +128,7 @@ videoSearch(term) {
                 <img className="trail-photo" src={ this.state.trailPhoto } alt="Not Found" />
                   <div className="trail-location-container">
                     <div className="title-center">
-                      <h1 className="trail-title">{this.state.trail ? this.state.trail.name : 'Please search again'}</h1>
+                      <h1 className="trail-title">{this.state.trail ? this.state.trailName : 'Please search again'}</h1>
                     <div className="location-end">
                       <h2 className="trail-location">{this.state.trail.city}, {this.state.trail.state}</h2>
                     </div>
@@ -146,10 +146,10 @@ videoSearch(term) {
 
                     </div>
           </div>
-              <h3 className="trail-name-h2">{this.state.trail.name}</h3>
+              <h3 className="trail-name-h2">{this.state.trailName}</h3>
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
-              <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
+              <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
               <VideoDetail video={this.state.selectedVideo}/>
               {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
