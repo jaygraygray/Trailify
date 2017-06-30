@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
+import { getWeatherData } from '../ducks/weather';
 import { connect } from 'react-redux';
 import YTSearch from 'youtube-api-search';
 import { Redirect } from 'react-router-dom';
@@ -23,7 +24,8 @@ class TrailSearch extends Component {
     searchCity: '',
     searchState: '',
     searchActivity: '',
-    shouldRedirect: false
+    shouldRedirect: false,
+    weather: {}
   }
 
   this.handleCitySearch = this.handleCitySearch.bind(this);
@@ -57,12 +59,12 @@ handleActivitySearch(event) {
 searchOnClick(event) {
   event.preventDefault();
 // console.log(window.history);
-
   // Check to make sure values to be passed to the API have been entered and selected.
   // If they are, run API call. If not, alert user.
 
   if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
+    this.props.getWeatherData(this.state.searchCity);
     this.setState({
       shouldRedirect: true
     });
@@ -117,8 +119,9 @@ return (
 function mapStateToProps(state) {
     return {
       info: state.trailReducer.trailData,
-      loading: state.trailReducer.loading
+      loading: state.trailReducer.loading,
+      weather: state.weatherReducer.weatherdata
     }
   }
 
-export default connect(mapStateToProps, {getTrailData})(TrailSearch);
+export default connect(mapStateToProps, {getTrailData, getWeatherData})(TrailSearch);

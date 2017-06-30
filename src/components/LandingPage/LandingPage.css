@@ -3,6 +3,7 @@
   height: 90vh;
   width: 100%;
   background-image: url('https://lh3.googleusercontent.com/-ss7Sypy-F2c/UO5TZyxzkrI/AAAAAAAALrU/zuBbB3cSXaU/w2048-h1365/Delicate%2BArch.jpg');
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;

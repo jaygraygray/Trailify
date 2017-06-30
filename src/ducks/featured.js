@@ -7,12 +7,10 @@ const initialState = {
     loading: false
 }
 export default function featuredReducer(state = initialState, action) {
-  console.log(action);
   switch(action.type) {
     case GET_TRAILS_PENDING:
       return Object.assign({}, state, {loading: true})
     case GET_TRAILS_FULFILLED:
-    console.log(action.payload)
       return Object.assign({}, state, {loading: false, featuredTrails: action.payload})
     default:
       return state

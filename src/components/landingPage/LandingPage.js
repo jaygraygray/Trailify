@@ -9,6 +9,10 @@ import './LandingPage.css';
 
 class LandingPage extends Component {
 
+  componentDidMount() {
+    document.body.scrollTop = 0;
+  }
+
     render() {
         return (
 
