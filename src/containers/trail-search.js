@@ -71,20 +71,6 @@ searchOnClick(event) {
   else {
     alert("Please search for a city, state, and activity type");
   }
-
-  // Reset values on "Search".
-
-  // const cityInput = document.getElementById('city-search');
-  // const stateInput = document.getElementById('state-search');
-  // const activityInput = document.getElementById('activity-search');
-
-  // cityInput.value = '';
-  // stateInput.value = '';
-  // activityInput.value = 'select';
-
-  // this.setState({searchCity: '', searchState: '', searchActivity: ''});
-
-
 }
 
 
@@ -94,8 +80,8 @@ render() {
     return <Redirect to="/results" />
   }
   else{
-    
-  
+
+
 
 return (
 
@@ -116,7 +102,7 @@ return (
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <br />
-      <button onClick={this.searchOnClick} />
+      <button onClick={this.searchOnClick}>SUBMIT</button>
     </div>
   </div>
 

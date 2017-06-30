@@ -7,10 +7,10 @@ class Header extends Component {
         return (
             <div className="navbar">
               <img className="logo" src="./white-logo-nav.png" alt=""></img>
-              <ul >
-                <li className="nav-link"><Link to="/" className="text">HOME</Link></li>
-                <li className="nav-link"><Link to="/about" className="text">ABOUT</Link></li>
-                <li className="nav-link">LOGIN/REGISTER</li>
+              <ul>
+                <Link to="/" className="text"><li className="nav-link">HOME</li></Link>
+                <Link to="/about" className="text"><li className="nav-link">ABOUT</li></Link>
+                <a href="http://localhost:5000/auth"><li className="nav-link">LOGIN/REGISTER</li></a>
               </ul>
             </div>
         );

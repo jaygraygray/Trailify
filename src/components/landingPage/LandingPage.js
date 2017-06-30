@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import TrailSearch from '../../containers/trail-search';
 import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
+import Nearby from './Nearby/Nearby'
+import Featured from './Featured/Featured'
 import './LandingPage.css';
+
 
 class LandingPage extends Component {
 
@@ -19,8 +22,11 @@ class LandingPage extends Component {
               <div className="trail-search">
                   <TrailSearch />
               </div>
-
             </section>
+              <section className="nearby-container">
+                <Nearby />
+              </section>
+              <Featured />
 
           </section>
         );

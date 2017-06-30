@@ -6,7 +6,7 @@ const GET_DATA_FULFILLED = 'GET_DATA_FULFILLED';
 
 const initialState = {
   trailData: [],
-  loading: false,
+  loading: false
 }
 
 export default function reducer(state = initialState, action) {
@@ -25,6 +25,6 @@ export default function reducer(state = initialState, action) {
 export function getTrailData(city, state, activity) {
   return {
     type: GET_DATA,
-    payload: dataimport.getTrailData(city, state, activity),
+    payload: dataimport.getTrailData(city, state, activity)
   }
 }

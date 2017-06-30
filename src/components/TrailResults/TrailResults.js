@@ -3,15 +3,26 @@ import { getTrailData } from '../../ducks/trail';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './TrailResults.css';
+<<<<<<< HEAD
 import Map from'./GoogleMap';
+=======
+import GoogleMap from'./GoogleMap';
+
+var delicatearch = require('./delicatearch.jpg')
+
+>>>>>>> master
 class TrailResults extends Component {
   constructor(props) {
   super(props);
+<<<<<<< HEAD
   this.state = {
     trailData: {},
     map: null
     
   }
+=======
+
+>>>>>>> master
 }
     mapMoved() {
       console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
@@ -25,8 +36,28 @@ class TrailResults extends Component {
       }) 
     }
     render() {
+<<<<<<< HEAD
+=======
+
+      const filteredName = (str) => {
+        let filtered = str.replace(/&amp;/gi, "and")
+        return filtered;
+       }
+
+
+>>>>>>> master
       const TrailData = this.props.info.map((data, i) => (
-          <div className="trail-list-items" key={i}><Link to={`/details/${data.unique_id}`}>{data.name}</Link></div>
+
+          <div className="trail-list-items" key={i}>
+            <Link id="results-link" to={`/details/${data.unique_id}`}>
+            
+            <h2 id="list-name">{filteredName(data.name)}</h2>
+            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} />
+
+            <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
+            <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
+            </Link>
+          </div>
         ))
       const TrailLat = this.props.info.map((data, i) => (
           data.lat
@@ -75,6 +106,7 @@ class TrailResults extends Component {
                 <div>{this.props.loading ? 'Loading...' : TrailData}</div>
             </div>
           </div>
+
           </section>
         );
     }

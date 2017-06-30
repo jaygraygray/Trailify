@@ -1,5 +1,4 @@
 * { box-sizing: border-box; }
-
 .landing-page-photo-contain {
   height: 90vh;
   width: 100%;
@@ -9,27 +8,22 @@
   text-align: center;
   background-position: center;
 }
-
-
 .search-contain {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   color: silver;
   margin-top: -50vh;
 }
-
 .search-input {
   margin-top: 57px;
   text-align: center;
   color: white;
 }
-
 .search-input placeholder {
   color: white;
 }
-
 ::-webkit-input-placeholder { /* Chrome */
   color: white;
 }
@@ -44,7 +38,6 @@
   color: white;
   opacity: 1;
 }
-
 .search-input input {
   height: 35px;
   width: 200px;
@@ -55,10 +48,9 @@
   text-align: center;
   outline: none;
   color: white;
-  font-size: 20px
-
+  font-size: 20px;
+  border-radius: 9%;
 }
-
 .search-input select {
   height: 35px;
   width: 200px;
@@ -71,9 +63,7 @@
   font-size: 20px;
   /*-webkit-appearance: none;
   border-radius: 0;*/
-
 }
-
 .search-input button {
   height: 35px;
   width: 75px;
@@ -87,4 +77,121 @@
   color: white;
   font-weight: bold;
   font-size: 10px
+}
+.search-input button:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+.nearby-container{
+  height: 35vh;
+  width: 100%;
+}
+.nearby-header{
+  height: 10vh;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+}
+.nearby-content{
+  display: flex;
+  /*justify-content: flex-end;*/
+}
+.nearby-hikes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 50vw;
+}
+.nearby-map-container{
+  height: 20vh;
+  width: 50vw;
+}
+.header-container{
+  text-align: center;
+}
+.featured-header{
+  width: 100%;
+  height: 10vh;
+  background-color: crimson;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.featured-text{
+  width: 180px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.hexagon{
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  height: 250px;
+  width: 200px;
+  /*background-color: black;*/
+  margin: 0px 5px;
+  min-width: 100px;
+  position: relative;
+}
+.hexagon-container{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.hexagon-background-image{
+  height: 100%;
+  width: 100%;
+}
+.hexagon-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: -50px;
+}
+.hexagon-middle{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: -50px;
+}
+.hexagon-bottom{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.top-triangle-container{
+  margin-top: -1px;
+  margin-bottom: -30px;
+  display: flex;
+  justify-content: center;
+}
+.top-triangle{
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 7vh;
+  width: 175px;
+  background-color: crimson;
+  transform: rotate(180deg)
+}
+.bottom-triangle-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1px;
+}
+.bottom-triangle{
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 7vh;
+  width: 175px;
+  background-color: #1d1d1d;
+  margin-top: -30px;
 }

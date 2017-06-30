@@ -1,12 +1,10 @@
 * { box-sizing: border-box; }
 
 .about-picture{
-    height: 55vh;
-    /*background-color: black;*/
-    background-image: url("./about-group.jpg");
+    height: 90vh;
+    background-image: url("./group-photo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
 }
 .about-content-container{
     height: 800px;
@@ -37,4 +35,66 @@
 }
 .about-content{
     width: 75%;
+}
+.linkedin-links{
+  width: 100%;
+  height: 40vh;
+  background-color: #EFF0F4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.linkedin-links a {
+  text-decoration: none;
+  color: #A0A3A5;
+  font-family: AtlasGrotesk, sans-serif;
+}
+
+.chase-link{
+  height: 25vh;
+  width: 205px;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.taylor-link{
+  height: 25vh;
+  width: 205px;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brian-link{
+  height: 25vh;
+  width: 205px;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.david-link{
+  height: 25vh;
+  width: 205px;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.chase-photo{
+  width: 100%;
+  height: 100%;
+
+}
+.david-photo{
+  width: 100%;
+  height: 100%;
+}
+.brian-photo{
+  width: 100%;
+  height: 100%;
+}
+.taylor-photo{
+  width: 100%;
+  height: 100%;
 }
