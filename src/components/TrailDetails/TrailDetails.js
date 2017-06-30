@@ -6,7 +6,6 @@ import VideoList from '../YouTube/video-list';
 import VideoDetail from '../YouTube/video-detail';
 import './TrailDetails.css';
 import { Redirect } from 'react-router-dom';
-<<<<<<< HEAD
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { getWeatherData } from '../../ducks/weather'
 
