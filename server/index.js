@@ -54,9 +54,6 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
-// app.get('*', function (request, response){
-//  response.sendFile(path.join(__dirname, '.././build/', 'index.html'))
-// })
 
 //========================== Controller =============================//
 
@@ -67,6 +64,10 @@ const trailsCtrl = require('./controllers/trailsCtrl')
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
 
 //======================= Listening Port ============================//
+
+app.get('*', function (request, response){
+ response.sendFile(path.join(__dirname, '.././build/', 'index.html'))
+})
 
 const port = 5000
 
