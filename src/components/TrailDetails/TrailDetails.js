@@ -6,6 +6,7 @@ import VideoList from '../YouTube/video-list';
 import VideoDetail from '../YouTube/video-detail';
 import './TrailDetails.css';
 import { Redirect } from 'react-router-dom';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { getWeatherData } from '../../ducks/weather'
 
 const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
@@ -42,6 +43,9 @@ videoSearch(term) {
 
   componentDidMount() {
 
+    document.body.scrollTop = 0;
+
+
     const arr = this.props.info;
     const trailArr = [];
     const {id} = this.props.match.params;
@@ -55,6 +59,49 @@ videoSearch(term) {
     localStorage.setItem('trailStorage', JSON.stringify(trailArr[0]))
 
     if (trailArr.length > 0) {
+
+      // Name filter //
+
+      const nameStr = trailArr[0].name;
+      const filteredName = nameStr.replace(/&amp;/gi, "and");
+
+      // Description filter //
+
+      const descReplaceObj = {
+        '&amp;': "and",
+        '<br />': '',
+        '&lt;br /&gt;': ' ',
+        '&quot;Y&quot;': '',
+        '&quot;': '"',
+        '&lt;BR&gt;&lt;BR&gt;': ''
+      }
+
+      const descStr = trailArr[0].activities[0].description;
+      const filteredDesc = descStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;|&quot;|&lt;BR&gt;&lt;BR&gt;/gi, function(matched) {
+        return descReplaceObj[matched];
+      });
+
+      // Directions filter //
+
+      const dirReplaceObj = {
+        '&amp;': "and",
+        '<br />': '',
+        '&lt;br /&gt;': ' ',
+        '&quot;Y&quot;': '',
+        '&quot;': '"',
+        '&lt;BR&gt;&lt;BR&gt;': ''
+
+      }
+
+      const dirStr = trailArr[0].directions;
+      const filteredDir = dirStr.replace(/&amp;|<br \/>|&lt;br \/&gt;|&quot;Y&quot;|&quot;|&lt;BR&gt;&lt;BR&gt;/gi, function(matched) {
+        return dirReplaceObj[matched];
+      });
+
+      // Set state with filtered info //
+
+      this.setState({trail: trailArr[0], trailName: filteredName, trailDescription: filteredDesc, trailDirections: filteredDir, trailLength: trailArr[0].activities[0].length, trailPhoto: trailArr[0].activities[0].thumbnail});
+
       this.setState({weather: this.props.weather.list[0].main.temp, trail: trailArr[0], trailLength: trailArr[0].activities[0].length, trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
       this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
     }
@@ -76,7 +123,7 @@ videoSearch(term) {
 
 
       return (
-          <div className="trail-details-contain">
+          <div id="trail-details-contain">
             <div className="image-wrapper">
                 <img className="trail-photo" src={ this.state.trailPhoto } alt="Not Found" />
                   <div className="trail-location-container">
@@ -104,9 +151,9 @@ videoSearch(term) {
               <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trail.directions ? this.state.trail.directions : 'No Directions Found'}</h4>
               <VideoDetail video={this.state.selectedVideo}/>
-              <VideoList
+              {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-              videos={this.state.videos}/>
+              videos={this.state.videos}/> : <LoadingScreen />}
           </div>
       );
   }
