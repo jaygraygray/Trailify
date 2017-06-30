@@ -6,6 +6,7 @@ import VideoList from '../YouTube/video-list';
 import VideoDetail from '../YouTube/video-detail';
 import './TrailDetails.css';
 import { Redirect } from 'react-router-dom';
+import { getWeatherData } from '../../ducks/weather'
 
 const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
 
@@ -23,7 +24,8 @@ class TrailDetails extends Component {
     trailLength: '',
     videos: [],
     selectedVideo: null,
-    shouldRedirect: false
+    shouldRedirect: false,
+    weather: []
   }
 
 }
@@ -53,14 +55,14 @@ videoSearch(term) {
     localStorage.setItem('trailStorage', JSON.stringify(trailArr[0]))
 
     if (trailArr.length > 0) {
-      this.setState({trail: trailArr[0], trailLength: trailArr[0].activities[0].length, trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
+      this.setState({weather: this.props.weather.list[0].main.temp, trail: trailArr[0], trailLength: trailArr[0].activities[0].length, trailDescription: trailArr[0].activities[0].description, trailPhoto: trailArr[0].activities[0].thumbnail});
       this.videoSearch(trailArr[0].name + ' ' + trailArr[0].activities[0].activity_type_name + ' ' + trailArr[0].city + ' ' + trailArr[0].state);
     }
+
 
     else if (trailArr.length < 1) {
       this.setState({trail: localStorage.getItem('trailStorage'), shouldRedirect: true})
     }
-
   }
 
     render() {
@@ -70,7 +72,8 @@ videoSearch(term) {
       }
       else {
 
-      console.log(localStorage.getItem('trailStorage'))
+      console.log('this.state.weather: ', this.state.weather)
+
 
       return (
           <div className="trail-details-contain">
@@ -92,7 +95,7 @@ videoSearch(term) {
                       </div>
                       <div className="trail-weather">
                         <h3>WEATHER</h3>
-                        <h1>93 &#8457;</h1>
+                        <h1>{Math.round(this.state.weather)}°F</h1>
 
                     </div>
           </div>
@@ -113,8 +116,9 @@ videoSearch(term) {
 function mapStateToProps(state) {
     return {
       info: state.trailReducer.trailData,
-      loading: state.trailReducer.loading
+      loading: state.trailReducer.loading,
+      weather: state.weatherReducer.weatherData
     }
   }
 
-export default connect(mapStateToProps, {getTrailData})(TrailDetails);
+export default connect(mapStateToProps, {getTrailData, getWeatherData})(TrailDetails);
