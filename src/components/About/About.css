@@ -38,31 +38,48 @@
 }
 .linkedin-links{
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   background-color: #EFF0F4;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.linkedin-links a {
+  text-decoration: none;
+  color: #A0A3A5;
+  font-family: AtlasGrotesk, sans-serif;
+}
+
 .chase-link{
   height: 25vh;
-  width: 275px;
+  width: 205px;
   background-color: white;
+  text-align: center;
+  font-weight: bold;
 }
+
 .taylor-link{
   height: 25vh;
-  width: 275px;
+  width: 205px;
   background-color: white;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
 }
+
 .brian-link{
   height: 25vh;
-  width: 275px;
+  width: 205px;
   background-color: white;
+  text-align: center;
+  font-weight: bold;
 }
 .david-link{
   height: 25vh;
-  width: 275px;
+  width: 205px;
   background-color: white;
+  text-align: center;
+  font-weight: bold;
 }
 .chase-photo{
   width: 100%;

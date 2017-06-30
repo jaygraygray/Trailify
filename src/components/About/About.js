@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import './About.css';
+
 var david = require('./david.JPG')
 var chase = require('./chase.jpeg')
 var brian = require('./brian.png')
@@ -24,16 +24,16 @@ class About extends Component {
                 </main>
                 <div className="linkedin-links">
                   <div className="chase-link">
-                    <img className="chase-photo" src={chase}/>
+                    <a href="https://www.linkedin.com/in/chasederr/"><img className="chase-photo" src={chase}/><p>CHASE DERR</p></a>
                   </div>
                   <div className="taylor-link">
-                    <img className="taylor-photo" src={taylor}/>
+                    <a href="https://www.linkedin.com/in/tsgriffith/"><img className="taylor-photo" src={taylor}/><p>TAYLOR GRIFFITH</p></a>
                   </div>
                   <div className="brian-link">
-                    <img className="brian-photo" src={brian}/>
+                    <a href="https://www.linkedin.com/in/briandinhtran/"><img className="brian-photo" src={brian}/><p>BRIAN TRAN</p></a>
                   </div>
                   <div className="david-link">
-                    <img className="david-photo" src={david}/>
+                    <a href="https://linkedin.com/in/davidtagholmes"><img className="david-photo" src={david}/><p>DAVID HOLMES</p></a>
                   </div>
                 </div>
             </section>

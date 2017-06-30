@@ -1,39 +1,34 @@
 /* global google */
-import {
-  default as React,
-  Component,
-} from "react";
+import { default as React, Component, } from "react";
 
-import {
-  withGoogleMap,
-  GoogleMap,
-} from "react-google-maps";
+class Map extends Component {
+    componentWillReceiveProps(nextProps) {
+    this.setState({
+      lat: nextProps.center.lat,
+      lng: nextProps.center.lng,
+    });
+  }
 
-/*
- * Sample From: https://developers.google.com/maps/documentation/javascript/examples/map-simple
- */
-const SimpleMapExampleGoogleMap = withGoogleMap(props => (
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: -34.397, lng: 150.644 }}
-  />
-));
-
-/*
- * Add <script src="https://maps.googleapis.com/maps/api/js"></script> to your HTML to provide google.maps reference
- */
-export default class SimpleMapExample extends Component {
-
+  componentDidMount(){
+    new google.maps.Map(document.getElementById("map"),{
+      center: {lat: "", lng: ""},
+      zoom: 8
+    })
+  }
+  componentDidUpdate() {
+    var myMap = document.getElementById("map")
+    myMap.innerHTML = ""
+    new google.maps.Map(myMap,{
+      center: { lat:this.props.center.lat, lng: this.props.center.lng },
+      zoom: 8
+  }
+      )
+  }
   render() {
     return (
-      <SimpleMapExampleGoogleMap
-        containerElement={
-          <div style={{ height: `100%` }} />
-        }
-        mapElement={
-          <div style={{ height: `100%` }} />
-        }
-      />
+      <div id="map">
+      </div>
     );
   }
 }
+export default Map;
