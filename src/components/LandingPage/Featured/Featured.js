@@ -15,11 +15,9 @@ componentDidMount() {
   this.setState({
     featuredTrails: this.props.Trails
   })
-  console.log(this.props.Trails)
 }
     render() {
         const Featured = this.props.Trails
-        console.log(Featured[0]) 
         return (
             <section>
                 <div className="featured-container">
