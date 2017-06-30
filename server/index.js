@@ -54,9 +54,9 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
-app.get('*', function (request, response){
- response.sendFile(path.join(__dirname, '.././build/', 'index.html'))
-})
+// app.get('*', function (request, response){
+//  response.sendFile(path.join(__dirname, '.././build/', 'index.html'))
+// })
 
 //========================== Controller =============================//
 

@@ -21,8 +21,7 @@ console.log(this.state);
         return (
             <div>
                 <div className="hexagon">
-                    <div></div>
-                    <img src={this.state.trail.photo_1} />
+                    <img className="hexagon-background-image" src={this.state.trail.photo_1} />
                     <h1>{this.state.trail.featured_trail_name}</h1>
                 </div>
             </div>
