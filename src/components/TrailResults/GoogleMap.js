@@ -8,22 +8,31 @@ class Map extends Component {
     })
   }
   componentDidUpdate() {
-    var mapCenter = { lat:this.props.center.lat, lng: this.props.center.lng }
-    // var bounds = new google.maps.LatLngBounds();
+    var mapCenter = { 
+      lat:this.props.center.lat,
+      lng: this.props.center.lng
+    }
     var myMap = document.getElementById("map")
     myMap.innerHTML = ""
     var newMap = new google.maps.Map(myMap,{
       center: mapCenter,
       zoom: 8
   })
-  var marker = new google.maps.Marker({
-    position: mapCenter,
-    map: newMap
+    console.log(this.props.coords);
+    let coords = this.props.coords;
+
+    const trailMarkers = coords.map((data, i) => {
+    console.log(data)
+    var marker = null
+    return (
+        marker = new google.maps.Marker({
+          position: data,
+          map: newMap,
+          title: "coolness"
+        }))
   })
-  //   bounds.extend(position);
-  // marker.setMap(myMap);
+  console.log(mapCenter)
   }
-  
   render() {
     return (
       <div id="map">
@@ -34,3 +43,6 @@ class Map extends Component {
   }
 }
 export default Map;
+
+// Create an array of alphabetical characters used to label the markers.
+       
