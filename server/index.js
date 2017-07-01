@@ -30,8 +30,9 @@ passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, ref
     db.getUsers([profile.id], function(err, user) {
       if (!user) {
         console.log('creating user');
-        db.storeUser([profile.givenName, profile.familyName], function(err, user) {
+        db.storeUser([profile.name.givenName, profile.name.familyName, profile.emails[0].value], function(err, user) {
           console.log('user created', user)
+          console.log(profile);
           return done(err, user)
         })
       }
