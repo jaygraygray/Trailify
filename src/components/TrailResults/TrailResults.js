@@ -39,13 +39,14 @@ class TrailResults extends Component {
     render() {
 
       const filteredName = (str) => {
-        let filtered = str.replace(/&amp;/gi, "and")
+        let filtered = str.replace(/&amp;/gi, "and");
         return filtered;
        }
       const TrailData = this.props.info.map((data, i) => (
 
           <div className="trail-list-items" key={i}>
             <Link id="results-link" to={`/details/${data.unique_id}`}>
+
             <h2 id="list-name">{filteredName(data.name)}</h2>
             <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 

@@ -23,15 +23,23 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(cors())
 
-var corsOptions = {
-    origin: 'http://localhost:8080'
-}
-
 //============================== Auth0 ===============================//
 
 
 passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, refreshToken, extraParams, profile, done) {
-    return done(null, profile);
+    db.getUsers([profile.id], function(err, user) {
+      if (!user) {
+        console.log('creating user');
+        db.storeUser([profile.givenName, profile.familyName], function(err, user) {
+          console.log('user created', user)
+          return done(err, user)
+        })
+      }
+      else {
+        console.log('found user', user);
+        return done(err, user);
+      }
+    })
 }))
 
 app.get('/auth', passport.authenticate('auth0')); //START
