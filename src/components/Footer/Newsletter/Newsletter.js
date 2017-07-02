@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import axios from 'axios';
 import './newsletter.css';
 
 class Newsletter extends Component {
@@ -23,25 +23,16 @@ class Newsletter extends Component {
   handleSubmit(event) {
     event.preventDefault()
 
-    let reqBody = {
+    axios.post('/contactus', {
       email: this.state.email
-    };
-
-    fetch('/contactus', {
-      method: 'POST',
-      body: JSON.stringify(reqBody),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw new Error('Something went wrong with your fetch');
-      }
-    }).then((json) => {
-      console.log(json);
     })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   }
   render() {
     return (
