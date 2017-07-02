@@ -9,6 +9,7 @@ const express = require('express')
       , Auth0Strategy = require('passport-auth0')
       , config_server = require('./config_server')
       , path = require('path')
+      , nodemailer = require("nodemailer")
 
 //========================= Intialize App ===========================//
 
@@ -54,6 +55,37 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
+//========================== NodeMailer =============================//
+
+app.post('/contactus', function(req, res){
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: config.emailAuth.user,
+        pass: config.emailAuth.pass
+    }
+});
+
+// setup email
+let mailOptions = {
+    from: '"trailifydevelopers" <trailifydevelopers@gmail.com>', // sender address
+    to: req.body.email, // list of receivers
+    subject: 'Thank You For Subscribing To Our Newsletter', // Subject line
+    text: "You're subscribed!", // plain text body
+    html: '<b>Thank you!</b>' // html body
+};
+
+transporter.sendMail(mailOptions, (error, info) => {
+    if(error) {
+        res.sendStatus(500);
+    } else {
+        console.log('Message sent');
+        res.sendStatus(200);
+        transporter.close();
+    }
+    })
+});
 
 //========================== Controller =============================//
 
