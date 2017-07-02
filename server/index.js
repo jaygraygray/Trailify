@@ -62,8 +62,8 @@ app.post('/contactus', function(req, res){
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: config.emailAuth.user,
-        pass: config.emailAuth.pass
+        user: config_server.emailAuth.user,
+        pass: config_server.emailAuth.pass
     }
 });
 
@@ -76,13 +76,12 @@ let mailOptions = {
     html: '<b>Thank you!</b>' // html body
 };
 
-transporter.sendMail(mailOptions, (error, info) => {
+transporter.sendMail(mailOptions, (error) => {
     if(error) {
-        res.sendStatus(500);
+      res.sendStatus(500);
     } else {
-        console.log('Message sent');
-        res.sendStatus(200);
-        transporter.close();
+      console.log("Email Sent");
+      res.sendStatus(200);
     }
     })
 });
