@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './newsletter.css';
+import './Newsletter.css';
 
 class Newsletter extends Component {
   constructor(props) {
@@ -37,12 +37,18 @@ class Newsletter extends Component {
   render() {
     return (
       <div >
+        <h2 className="footer-headline">Newsletter</h2>
+        <h3 className="newsletter-headline">Subscribe to our newsletter to stay up to date!</h3>
         <form onSubmit={this.handleSubmit} >
-          <input type="text"
+          <input
+            id="email-input"
+            type="email"
             placeholder="E-MAIL"
             value={this.state.email}
             onChange={this.handleEmail} required/>
-          <input type="submit" />
+          <input
+            id="email-submit"
+            type="submit" />
         </form>
       </div>
     );
