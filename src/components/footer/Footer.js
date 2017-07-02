@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Newsletter from './Newsletter/Newsletter';
 
 import './Footer.css';
 
@@ -24,12 +25,7 @@ class Footer extends Component {
                       </div>
                   </div>
                   <div className="mailing-list">
-                      <h2 className="footer-headline">Mailing List</h2>
-                      <h3 className="newsletter-headline">Subscribe To Our Newsletter</h3>
-                      <form>
-                        <input id="email-input" type="email" placeholder="Email Address"/>
-                        <input id="email-submit" type="submit" value="SUBMIT"/>
-                      </form>
+                    <Newsletter />
                   </div>
                   <div className="contact-us">
                       <h2 className="footer-headline">Contact Us</h2>
