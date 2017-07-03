@@ -46,7 +46,7 @@ export default class homeMap extends Component {
   state = {
     center: null,
     content: null,
-    radius: 6000,
+    radius: 3000,
   };
 
   isUnmounted = false;
@@ -56,7 +56,8 @@ export default class homeMap extends Component {
       if (this.isUnmounted) {
         return;
       }
-      this.setState({ radius: Math.max(this.state.radius - 20, 0) });
+      //How fast the red circle animation
+      this.setState({ radius: Math.max(this.state.radius - 40, 0) });
 
       if (this.state.radius > 200) {
         raf(tick);
@@ -71,7 +72,7 @@ export default class homeMap extends Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         },
-        content: `Location found using HTML5.`,
+        content: `You are here`,
       });
 
       raf(tick);
