@@ -1,6 +1,7 @@
-* {
+*,*:before, *:after {
   box-sizing: border-box;
-}
+
+ }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
@@ -12,7 +13,26 @@
     justify-content: space-around;
     font-family: 'Roboto', sans-serif;
 }
-
+/*@media(max-width: 400px){
+  .footer-wrapper {
+    width: 100%;
+    height: 40vh;
+    background-color: #1D1D1D;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+}
+}
+@media(max-width: 737px){
+  .footer-wrapper{
+    width: 100%;
+    height: 30vh;
+    background-color: #1D1D1D;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+  }
+}*/
 .follow-us{
     display: flex;
     flex-direction: column;
@@ -30,7 +50,13 @@
   font-size: 3em;
   margin: 0px 10px;
 }
-
+/*@media(max-width: 400px){
+.about-media{
+  color: #FF8B27;
+  font-size: 2em;
+  margin: 0px 10px;
+}
+}*/
 .name-email-wrapper {
   display: flex;
 }
@@ -41,11 +67,41 @@
   color: #FF8B27;
   text-decoration: none;
 }
+/*@media(max-width: 400px){
+  .contact-names{
+    font-size: 13px;
+    line-height: 143%;
+    color: #ff8b27;
+    text-decoration: none;
+  }
+}
+@media(max-width: 737px){
+  .contact-names{
+    font-size: 21px;
+    line-height: 119%;
+    color: #ff8b27;
+    text-decoration: none;
+  }
+}*/
 
 .footer-headline {
   color: #FFFFFF;
   font-size: 1.7em;
 }
+/*@media(max-width: 400px){
+  .footer-headline {
+    color: #FFFFFF;
+    font-size: .8em;
+    margin: 9px;
+}
+}
+@media(max-width: 737px){
+  .footer-hadline{
+    color: #FFFFFF;
+    font-size: 1.3em;
+    margin: 5px;
+  }
+}*/
 
 .email-text {
   color: #55585b;
@@ -59,6 +115,21 @@
   color: #55585b;
   cursor: pointer;
 }
+/*@media(max-width: 400px){
+  .footer-links{
+    color: #55585b;
+    cursor: pointer;
+    font-size: 14px
+  }
+}
+@media(max-width: 737px){
+  .footer-links{
+    color: #55585b;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 7px
+  }
+}*/
 
 .footer-links:hover {
   color: #FFFFFF;
@@ -73,6 +144,20 @@
   font-size: 1.3em;
   color: #55585b;
 }
+/*@media(max-width: 400px){
+  .copyright-wrapper{
+    background-color: #353333;
+    height: 7vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #55585b;
+  }
+}*/
 
 .site-name {
   color: #FF8B27;

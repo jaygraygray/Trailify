@@ -7,7 +7,11 @@
   width: 280px;
   height: 35px;
   border: none;
-  padding-bottom: 4px;
+  /*padding-bottom: 4px;*/
+}
+
+input[type="email"]#email-input::-webkit-input-placeholder {
+  color: #939393;
 }
 
 #email-submit {
@@ -17,6 +21,7 @@
   color: #FFFFFF;
   border: none;
   font-size: 1em;
+  padding-top: 6px;
 }
 
 #email-submit:hover {
@@ -26,6 +31,6 @@
 
 
 input[type="email"] {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #1D1D1D;
 }
