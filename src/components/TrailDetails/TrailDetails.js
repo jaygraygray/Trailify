@@ -7,7 +7,9 @@ import VideoDetail from '../YouTube/video-detail';
 import './TrailDetails.css';
 import { Redirect } from 'react-router-dom';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
-import { getWeatherData } from '../../ducks/weather'
+import { getWeatherData } from '../../ducks/weather';
+import { addToFavorites } from '../../services/favorites';
+import { getUserInfo } from '../../ducks/user';
 
 const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
 
@@ -31,6 +33,8 @@ class TrailDetails extends Component {
     trailDirections: '',
   }
 
+  this.addToFavorites = this.addToFavorites.bind(this);
+
 }
 
 videoSearch(term) {
@@ -42,15 +46,23 @@ videoSearch(term) {
   })
 }
 
+addToFavorites(event) {
+  event.preventDefault();
+  addToFavorites(this.props.userInfo.user_id, this.state.trail.unique_id, this.state.trailName, this.state.trail.city, this.state.trail.state, this.state.trailLength, this.state.trail.activities[0].rating);
+}
+
 
   componentDidMount() {
 
     document.body.scrollTop = 0;
 
+    this.props.getUserInfo();
+    this.setState({user: this.props.userInfo});
+
 
     const arr = this.props.info;
     const trailArr = [];
-    const {id} = this.props.match.params;
+    const { id } = this.props.match.params;
 
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].unique_id == id) {
@@ -110,6 +122,7 @@ videoSearch(term) {
     else if (trailArr.length < 1) {
       this.setState({trail: localStorage.getItem('trailStorage'), shouldRedirect: true})
     }
+
   }
 
     render() {
@@ -117,10 +130,8 @@ videoSearch(term) {
       if (this.state.shouldRedirect) {
         return <Redirect to="/" />
       }
+
       else {
-
-      console.log('this.state.weather: ', this.state.weather)
-
 
       return (
           <div id="trail-details-contain">
@@ -150,6 +161,7 @@ videoSearch(term) {
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
+              <button id="favorite-trail" onClick={this.addToFavorites}>Favorite this Trail</button>
               <VideoDetail video={this.state.selectedVideo}/>
               {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
@@ -162,10 +174,11 @@ videoSearch(term) {
 
 function mapStateToProps(state) {
     return {
+      userInfo: state.userLoginReducer.userData,
       info: state.trailReducer.trailData,
       loading: state.trailReducer.loading,
       weather: state.weatherReducer.weatherData
     }
   }
 
-export default connect(mapStateToProps, {getTrailData, getWeatherData})(TrailDetails);
+export default connect(mapStateToProps, {getTrailData, getWeatherData, getUserInfo})(TrailDetails);
