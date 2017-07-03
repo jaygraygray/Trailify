@@ -63,8 +63,6 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
-<<<<<<< HEAD
-=======
 //========================== NodeMailer =============================//
 
 app.post('/contactus', function(req, res){
@@ -97,7 +95,6 @@ transporter.sendMail(mailOptions, (error) => {
     })
 });
 
->>>>>>> master
 //========================== Controller =============================//
 
 const trailsCtrl = require('./controllers/trailsCtrl')
