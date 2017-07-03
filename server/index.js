@@ -27,12 +27,11 @@ app.use(cors())
 
 
 passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, refreshToken, extraParams, profile, done) {
-    db.getUsers([profile.id], function(err, user) {
+    db.getUsers([profile.emails[0].value], function(err, user) {
       if (!user) {
         console.log('creating user');
         db.storeUser([profile.name.givenName, profile.name.familyName, profile.emails[0].value], function(err, user) {
           console.log('user created', user)
-          console.log(profile);
           return done(err, user)
         })
       }
@@ -63,14 +62,20 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
-
 //========================== Controller =============================//
 
 const trailsCtrl = require('./controllers/trailsCtrl')
+const favoriteCtrl = require('./controllers/favoriteCtrl')
+
 
 //========================= Get Requests =============================//
 
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
+app.get('/api/favorited', favoriteCtrl.getFavorites)
+
+//========================= Post Requests =============================//
+
+app.post('/api/favorited', favoriteCtrl.addToFavorites)
 
 //======================= Listening Port ============================//
 
