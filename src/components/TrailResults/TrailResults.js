@@ -28,6 +28,10 @@ class TrailResults extends Component {
         let filtered = str.replace(/&amp;/gi, "and")
         return filtered;
        }
+      const markerLength = (int) => {
+        let markers = int.toString()
+        return markers;
+       }
       const TrailData = this.props.info.map((data, i) => (
 
           <div className="trail-list-items" key={i}>
