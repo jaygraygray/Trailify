@@ -38,12 +38,8 @@ class TrailResults extends Component {
       const TrailData = this.props.info.map((data, i) => (
           <div className="trail-list-items" key={i}>
             <Link id="results-link" to={`/details/${data.unique_id}`}>
-<<<<<<< HEAD
-            <h2 id="list-name">{filteredName(data.name)} {i + 1}</h2>
-=======
 
-            <h2 id="list-name">{filteredName(data.name)} {i++}</h2>
->>>>>>> master
+            <h2 id="list-name">{filteredName(data.name)} {i + 1}</h2>
             <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
             <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
