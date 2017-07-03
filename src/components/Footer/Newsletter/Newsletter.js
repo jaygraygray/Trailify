@@ -34,16 +34,6 @@ class Newsletter extends Component {
       <div >
         <h2 className="footer-headline">Newsletter</h2>
         <h3 className="newsletter-headline">Subscribe to our newsletter to stay up to date!</h3>
-        <form onSubmit={this.handleSubmit} >
-          <input
-            id="email-input"
-            type="email"
-            placeholder="E-mail"
-            value={this.state.email}
-            onChange={this.handleEmail} required/>
-          <input
-            id="email-submit"
-            type="submit" />
         <form onSubmit={this.handleSubmit}>
           <input id="email-input" type="email" placeholder="E-MAIL" value={this.state.email} onChange={this.handleEmail} required/>
           <input id="email-submit" type="submit"/>
