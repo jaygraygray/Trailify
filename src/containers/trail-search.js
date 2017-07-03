@@ -62,7 +62,7 @@ searchOnClick(event) {
   // Check to make sure values to be passed to the API have been entered and selected.
   // If they are, run API call. If not, alert user.
 
-  if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
+if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
     this.props.getWeatherData(this.state.searchCity);
     this.setState({
@@ -92,19 +92,19 @@ return (
     <div className="search-input">
       <input id="city-search"
       onChange={this.handleCitySearch}
-      placeholder="City" />
+      placeholder="City" required/>
       <input id="state-search"
       onChange={this.handleStateSearch}
-      placeholder="State" />
+      placeholder="State" required/>
       <select id="activity-search"
         onChange={this.handleActivitySearch}
         placeholder="Select activity">
-          <option value="select">Select activity</option>
+          <option value="select">Select Activity ▼</option>
           <option value="hiking">Hiking</option>
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <br />
-      <button onClick={this.searchOnClick}>SUBMIT</button>
+      <button className="animated-button victoria-one" onClick={this.searchOnClick}>SUBMIT</button>
     </div>
   </div>
 

@@ -43,7 +43,7 @@ class Newsletter extends Component {
           <input
             id="email-input"
             type="email"
-            placeholder="E-MAIL"
+            placeholder="E-mail"
             value={this.state.email}
             onChange={this.handleEmail} required/>
           <input
