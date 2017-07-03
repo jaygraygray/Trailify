@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { getWeatherData } from '../ducks/weather';
 import { connect } from 'react-redux';
-import YTSearch from 'youtube-api-search';
 import { Redirect } from 'react-router-dom';
 
-
-// Go in config
-
-const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
-
-YTSearch({key: API_Key, term: "insert trail and activity here"}, function(data) {
-  console.log(data);
-})
 
 class TrailSearch extends Component {
 
@@ -32,7 +23,6 @@ class TrailSearch extends Component {
   this.handleStateSearch = this.handleStateSearch.bind(this);
   this.handleActivitySearch = this.handleActivitySearch.bind(this);
   this.searchOnClick = this.searchOnClick.bind(this);
-
 }
 
 // Set state of search inputs.
@@ -58,11 +48,11 @@ handleActivitySearch(event) {
 // Search function to be run when "Submit button is clicked".
 searchOnClick(event) {
   event.preventDefault();
-// console.log(window.history);
+
   // Check to make sure values to be passed to the API have been entered and selected.
   // If they are, run API call. If not, alert user.
 
-  if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
+if (this.state.searchCity && this.state.searchState && this.state.searchActivity) {
     this.props.getTrailData(this.state.searchCity, this.state.searchState, this.state.searchActivity);
     this.props.getWeatherData(this.state.searchCity);
     this.setState({
@@ -92,19 +82,19 @@ return (
     <div className="search-input">
       <input id="city-search"
       onChange={this.handleCitySearch}
-      placeholder="City" />
+      placeholder="City" required/>
       <input id="state-search"
       onChange={this.handleStateSearch}
-      placeholder="State" />
+      placeholder="State" required/>
       <select id="activity-search"
         onChange={this.handleActivitySearch}
         placeholder="Select activity">
-          <option value="select">Select activity</option>
+          <option value="select">Select Activity ▼</option>
           <option value="hiking">Hiking</option>
           <option value="mountain biking">Mountain Biking</option>
       </select>
       <br />
-      <button onClick={this.searchOnClick}>SUBMIT</button>
+      <button className="animated-button victoria-one" onClick={this.searchOnClick}>SUBMIT</button>
     </div>
   </div>
 

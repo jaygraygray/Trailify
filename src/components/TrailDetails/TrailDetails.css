@@ -106,6 +106,10 @@
   font-weight: 300;
 }
 
+#favorite-trail {
+  text-align: center;
+}
+
 /* YouTube Videos */
 
 .video-detail {

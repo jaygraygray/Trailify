@@ -24,15 +24,23 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(cors())
 
-var corsOptions = {
-    origin: 'http://localhost:8080'
-}
-
 //============================== Auth0 ===============================//
 
 
 passport.use(new Auth0Strategy(config_server.authPass, function(accessToken, refreshToken, extraParams, profile, done) {
-    return done(null, profile);
+    db.getUsers([profile.emails[0].value], function(err, user) {
+      if (!user) {
+        console.log('creating user');
+        db.storeUser([profile.name.givenName, profile.name.familyName, profile.emails[0].value], function(err, user) {
+          console.log('user created', user)
+          return done(err, user)
+        })
+      }
+      else {
+        console.log('found user', user);
+        return done(err, user);
+      }
+    })
 }))
 
 app.get('/auth', passport.authenticate('auth0')); //START
@@ -77,10 +85,11 @@ let mailOptions = {
 };
 
 transporter.sendMail(mailOptions, (error) => {
+    let date = new Date();
     if(error) {
       res.sendStatus(500);
     } else {
-      console.log("Email Sent");
+      console.log(`Newsletter confirmation email sent on ${date.getMonth()}/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
       res.sendStatus(200);
     }
     })
@@ -89,10 +98,17 @@ transporter.sendMail(mailOptions, (error) => {
 //========================== Controller =============================//
 
 const trailsCtrl = require('./controllers/trailsCtrl')
+const favoriteCtrl = require('./controllers/favoriteCtrl')
+
 
 //========================= Get Requests =============================//
 
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
+app.get('/api/favorited', favoriteCtrl.getFavorites)
+
+//========================= Post Requests =============================//
+
+app.post('/api/favorited', favoriteCtrl.addToFavorites)
 
 //======================= Listening Port ============================//
 
