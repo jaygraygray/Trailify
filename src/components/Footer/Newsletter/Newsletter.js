@@ -16,20 +16,15 @@ class Newsletter extends Component {
   }
 
   handleEmail(event) {
-    console.log(event.target.value);
     this.setState({email: event.target.value})
   }
 
   handleSubmit(event) {
     event.preventDefault()
 
-    axios.post('/contactus', {
-      email: this.state.email
-    })
-    .then(function (response) {
+    axios.post('/contactus', {email: this.state.email}).then(function(response) {
       console.log(response);
-    })
-    .catch(function (error) {
+    }).catch(function(error) {
       console.log(error);
     });
 
@@ -49,6 +44,9 @@ class Newsletter extends Component {
           <input
             id="email-submit"
             type="submit" />
+        <form onSubmit={this.handleSubmit}>
+          <input id="email-input" type="email" placeholder="E-MAIL" value={this.state.email} onChange={this.handleEmail} required/>
+          <input id="email-submit" type="submit"/>
         </form>
       </div>
     );

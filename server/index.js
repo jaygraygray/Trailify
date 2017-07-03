@@ -77,10 +77,11 @@ let mailOptions = {
 };
 
 transporter.sendMail(mailOptions, (error) => {
+    let date = new Date();
     if(error) {
       res.sendStatus(500);
     } else {
-      console.log("Email Sent");
+      console.log(`Newsletter confirmation email sent on ${date.getMonth()}/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
       res.sendStatus(200);
     }
     })

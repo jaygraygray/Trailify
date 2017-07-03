@@ -28,11 +28,17 @@ class TrailResults extends Component {
         let filtered = str.replace(/&amp;/gi, "and")
         return filtered;
        }
-      const TrailData = this.props.info.map((data, i) => (
 
+       var labels = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50"];
+        
+      const getLabels = labels.map((data, i) => {
+        return(data + "")
+      })
+       console.log(this.props.info);
+      const TrailData = this.props.info.map((data, i) => (
           <div className="trail-list-items" key={i}>
             <Link id="results-link" to={`/details/${data.unique_id}`}>
-            <h2 id="list-name">{filteredName(data.name)}</h2>
+            <h2 id="list-name">{filteredName(data.name)} {i++}</h2>
             <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
             <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
@@ -54,7 +60,7 @@ class TrailResults extends Component {
 
     const makeMarkers = function createMarker() {
       const Lat = TrailLat;
-      console.log(Lat);
+      // console.log(Lat);
       const Lng = TrailLng;
 
       function makeCoord(Lat, Lng) {
