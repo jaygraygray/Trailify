@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import { getTrailData } from '../ducks/trail';
 import { getWeatherData } from '../ducks/weather';
 import { connect } from 'react-redux';
-import YTSearch from 'youtube-api-search';
 import { Redirect } from 'react-router-dom';
 
-
-// Go in config
-
-const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
-
-YTSearch({key: API_Key, term: "insert trail and activity here"}, function(data) {
-  console.log(data);
-})
 
 class TrailSearch extends Component {
 
@@ -32,7 +23,6 @@ class TrailSearch extends Component {
   this.handleStateSearch = this.handleStateSearch.bind(this);
   this.handleActivitySearch = this.handleActivitySearch.bind(this);
   this.searchOnClick = this.searchOnClick.bind(this);
-
 }
 
 // Set state of search inputs.
@@ -58,7 +48,7 @@ handleActivitySearch(event) {
 // Search function to be run when "Submit button is clicked".
 searchOnClick(event) {
   event.preventDefault();
-// console.log(window.history);
+
   // Check to make sure values to be passed to the API have been entered and selected.
   // If they are, run API call. If not, alert user.
 
