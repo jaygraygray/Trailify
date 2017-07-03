@@ -18,7 +18,6 @@ class Map extends Component {
       center: mapCenter,
       zoom: 10
   })
-    // console.log(this.props.coords);
     let coords = this.props.coords;
 
     const trailMarkers = coords.map((data, i) => {
@@ -37,7 +36,6 @@ class Map extends Component {
           
         }))
   })
-  // console.log(mapCenter)
   }
   render() {
     return (
@@ -49,6 +47,4 @@ class Map extends Component {
   }
 }
 export default Map;
-
-// Create an array of alphabetical characters used to label the markers.
        
