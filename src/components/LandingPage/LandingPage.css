@@ -84,7 +84,7 @@
   transition: 1s;
 }
 .nearby-container{
-  height: 35vh;
+  height: 100%;
   width: 100%;
 }
 .nearby-header{
@@ -108,10 +108,15 @@
   height: 10vh;
   width: 50vw;
 }
-.nearby-map-container{
-  height: 20vh;
-  width: 50vw;
+.wrapper{
+  height: 500px;
+  width: 500px;
 }
+#homeMap{
+  height: 100%;
+  width: 100%;
+}
+
 .header-container{
   text-align: center;
 }
