@@ -9,6 +9,7 @@ const express = require('express')
       , Auth0Strategy = require('passport-auth0')
       , config_server = require('./config_server')
       , path = require('path')
+      , nodemailer = require("nodemailer")
 
 //========================= Intialize App ===========================//
 
@@ -62,6 +63,41 @@ const userCtrl = require('./controllers/userCtrl')
 
 app.get('/me', userCtrl.me)
 
+<<<<<<< HEAD
+=======
+//========================== NodeMailer =============================//
+
+app.post('/contactus', function(req, res){
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: config_server.emailAuth.user,
+        pass: config_server.emailAuth.pass
+    }
+});
+
+// setup email
+let mailOptions = {
+    from: '"trailifydevelopers" <trailifydevelopers@gmail.com>', // sender address
+    to: req.body.email, // list of receivers
+    subject: 'Thank You For Subscribing To Our Newsletter', // Subject line
+    text: "You're subscribed!", // plain text body
+    html: '<b>Thank you!</b>' // html body
+};
+
+transporter.sendMail(mailOptions, (error) => {
+    let date = new Date();
+    if(error) {
+      res.sendStatus(500);
+    } else {
+      console.log(`Newsletter confirmation email sent on ${date.getMonth()}/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+      res.sendStatus(200);
+    }
+    })
+});
+
+>>>>>>> master
 //========================== Controller =============================//
 
 const trailsCtrl = require('./controllers/trailsCtrl')

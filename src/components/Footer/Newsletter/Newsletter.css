@@ -1,0 +1,31 @@
+.newsletter-headline {
+  color: #55585b;
+  font-size: 1.2em;
+}
+
+#email-input {
+  width: 280px;
+  height: 35px;
+  border: none;
+  padding-bottom: 4px;
+}
+
+#email-submit {
+  width: 100px;
+  height: 35px;
+  background-color: #FF8B27;
+  color: #FFFFFF;
+  border: none;
+  font-size: 1em;
+}
+
+#email-submit:hover {
+  filter: brightness(85%);
+  font-style: italic;
+}
+
+
+input[type="email"] {
+  font-size: 1.2em;
+  color: #1D1D1D;
+}
