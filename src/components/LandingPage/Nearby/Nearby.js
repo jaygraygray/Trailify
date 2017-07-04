@@ -5,6 +5,7 @@ import '../LandingPage.css';
 
 class Nearby extends Component {
     render() {
+        console.log('PROPS', this.props);
         return (
             <div>
                 <header className="nearby-header">

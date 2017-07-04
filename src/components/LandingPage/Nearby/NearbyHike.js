@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTrailData } from '../../../ducks/trail';
+import { getLandingData } from '../../../ducks/landing';
 import LoadingScreen from '../../LoadingScreen/LoadingScreen';
 
 
@@ -15,13 +15,6 @@ class NearbyHike extends Component {
     map: null,
   }
 }
-// componentDidMount() {
-//   this.props.getFeaturedTrails();
-//   this.setState({
-//     featuredTrails: this.props.Trails
-//   })
-// }
-
 
 
     render() {
@@ -60,8 +53,8 @@ class NearbyHike extends Component {
 }
 function mapStateToProps(state) {
     return {
-      info: state.trailReducer.trailData,
+      info: state.landingReducer.getLandingData,
       loading: state.trailReducer.loading
     }
   }
-export default connect(mapStateToProps, {getTrailData})(NearbyHike);
+export default connect(mapStateToProps, {getLandingData})(NearbyHike);
