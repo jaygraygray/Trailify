@@ -13,10 +13,12 @@ exports.addToFavorites = (req, res) => {
 }
 
 exports.getFavorites = (req, res) => {
-  db.getFavorites([req.user_id], (err, response) => {
+  console.log(req.params.user_id);
+  db.getFavorites([req.params.user_id], (err, response) => {
     if (err) {
       console.log(err)
     }
+    console.log(response);
     res.status(200).send(response);
   })
 }

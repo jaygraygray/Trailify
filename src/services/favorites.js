@@ -8,7 +8,7 @@ export const addToFavorites = function(user_id, unique_id, name, city, state, le
 }
 
 export const getFavoriteTrails = function(user_id) {
-  return axios.get('/api/favorited', {
+  return axios.get(`/api/favorited/${user_id}`, {
   })
   .then(res => {console.log('GET FAVORITE TRAILS:', res.data); return res.data})
 }

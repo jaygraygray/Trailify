@@ -161,7 +161,7 @@ addToFavorites(event) {
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
-              <button id="favorite-trail" onClick={this.addToFavorites}>Favorite this Trail</button>
+              <button id="favorite-trail" onClick={this.addToFavorites}>Add to favorites</button>
               <VideoDetail video={this.state.selectedVideo}/>
               {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}

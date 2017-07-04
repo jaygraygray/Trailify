@@ -4,9 +4,11 @@ import dataReducer from './trail';
 import weatherReducer from './weather';
 import userReducer from './user';
 import featuredReducer from './featured';
+import favReducer from './favorites';
 
 
 const reducer = combineReducers({
+  favReducer: favReducer,
   trailReducer: dataReducer,
   weatherReducer: weatherReducer,
   userLoginReducer: userReducer,

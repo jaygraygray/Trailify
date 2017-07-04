@@ -104,7 +104,7 @@ const favoriteCtrl = require('./controllers/favoriteCtrl')
 //========================= Get Requests =============================//
 
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
-app.get('/api/favorited', favoriteCtrl.getFavorites)
+app.get('/api/favorited/:user_id', favoriteCtrl.getFavorites)
 
 //========================= Post Requests =============================//
 
