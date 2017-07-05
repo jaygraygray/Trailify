@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import './UserProfile.css';
 import { getFavoriteTrails } from '../../ducks/favorites';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
+import { Redirect } from 'react-router-dom';
+import { removeFromFavorites } from '../../services/favorites';
 
 
 class UserProfile extends Component {
@@ -14,24 +16,31 @@ class UserProfile extends Component {
 
   this.state = {
     user: {},
-    favorites: {}
+    favorites: {},
+    shouldRedirect: false
   }
 
 }
 
+
 componentDidMount() {
+
   var outsideContext = this;
   // DB Call Functions//
-  this.props.getUserInfo().then(function(){
+  this.props.getUserInfo().then(() => {
     outsideContext.props.getFavoriteTrails(outsideContext.props.userInfo.user_id);
   });
 
-
     // Set State //
 
-    this.setState({favorites: this.props.favoriteTrails, user: this.props.userInfo});
+  this.setState({favorites: this.props.favoriteTrails, user: this.props.userInfo});
+
   }
 
+  removeFromFavorites(index) {
+    removeFromFavorites(this.props.favoriteTrails[index].user_id, this.props.favoriteTrails[index].unique_id);
+    console.log('REMOVE BY:', this.props.favoriteTrails[index].user_id, this.props.favoriteTrails[index].unique_id);
+  }
 
     render() {
 
@@ -43,7 +52,7 @@ componentDidMount() {
        }
 
       console.log("Fav Trails Mapping:", this.props.favoriteTrails.map((data, i) => {
-        return data.name
+        return data
       }));
 
       const FavoriteTrails = this.props.favoriteTrails.map((data, i) => (
@@ -53,6 +62,7 @@ componentDidMount() {
             <h2 id="fav-name">{filteredName(data.name)}</h2>
             <h4 id="fav-rating">Rating: {data.rating > 0 ? data.rating + "/5" : "N/A"}</h4>
             <h4 id="fav-length">Length: {data.length > 0 ? data.length + " mi" : "N/A"}</h4>
+            <button id="remove-from-favorites" onClick={() => this.removeFromFavorites(i)}>Remove</button>
 
             </Link>
           </div>

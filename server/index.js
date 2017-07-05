@@ -110,6 +110,11 @@ app.get('/api/favorited/:user_id', favoriteCtrl.getFavorites)
 
 app.post('/api/favorited', favoriteCtrl.addToFavorites)
 
+//========================= Delete Requests =============================//
+
+app.post('/api/favorited', favoriteCtrl.addToFavorites)
+app.delete('/api/favorited/:user_id/:unique_id', favoriteCtrl.removeFromFavorites)
+
 //======================= Listening Port ============================//
 
 app.get('*', function (request, response){
