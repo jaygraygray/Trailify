@@ -12,6 +12,7 @@
     "nodemailer": "^4.0.1",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0",
+    "raf": "^3.3.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-google-maps": "^6.3.0",
