@@ -242,14 +242,16 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
 }
-.hexagon:hover .name-overlay{
-  opacity: 1;
+
+.name-overlay:hover {
+  background-color: #1d1d1d;
+  opacity: .5;
 }
+
 .trail-name {
   color: white;
-  font-size: 20px;
+  font-size: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
