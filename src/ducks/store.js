@@ -4,6 +4,7 @@ import dataReducer from './trail';
 import weatherReducer from './weather';
 import userReducer from './user';
 import featuredReducer from './featured';
+import landingReducer from './landing';
 import favReducer from './favorites';
 
 
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   trailReducer: dataReducer,
   weatherReducer: weatherReducer,
   userLoginReducer: userReducer,
-  featuredReducer: featuredReducer
+  featuredReducer: featuredReducer,
+  landingReducer: landingReducer
 })
 
 export default createStore(
