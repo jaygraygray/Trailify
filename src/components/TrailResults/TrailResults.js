@@ -34,7 +34,7 @@ class TrailResults extends Component {
       const getLabels = labels.map((data, i) => {
         return(data + "")
       })
-       console.log(this.props.info);
+
       const TrailData = this.props.info.map((data, i) => (
           <div className="trail-list-items" key={i}>
         <Link id="results-link" to={`/details/${data.unique_id}`}>
@@ -53,6 +53,7 @@ class TrailResults extends Component {
       const TrailLng = this.props.info.map((data, i) => {
           return data.lon
       })
+
         const latObj = TrailLat[0];
         let actualLat = latObj;
         const lngObj = TrailLng[0];

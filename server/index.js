@@ -104,11 +104,16 @@ const favoriteCtrl = require('./controllers/favoriteCtrl')
 //========================= Get Requests =============================//
 
 app.get('/api/featured_trails', trailsCtrl.getfeaturedtrails)
-app.get('/api/favorited', favoriteCtrl.getFavorites)
+app.get('/api/favorited/:user_id', favoriteCtrl.getFavorites)
 
 //========================= Post Requests =============================//
 
 app.post('/api/favorited', favoriteCtrl.addToFavorites)
+
+//========================= Delete Requests =============================//
+
+app.post('/api/favorited', favoriteCtrl.addToFavorites)
+app.delete('/api/favorited/:user_id/:unique_id', favoriteCtrl.removeFromFavorites)
 
 //======================= Listening Port ============================//
 

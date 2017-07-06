@@ -7,8 +7,14 @@ export const addToFavorites = function(user_id, unique_id, name, city, state, le
   .then(res => {console.log('POST FAVORITE TRAIL:', res.data); return res.data})
 }
 
+export const removeFromFavorites = function(user_id, unique_id) {
+  return axios.delete(`/api/favorited/${user_id}/${unique_id}`, {
+  })
+  .then(res => {console.log('DELETE TRAIL:', res.data); return res.data})
+}
+
 export const getFavoriteTrails = function(user_id) {
-  return axios.get('/api/favorited', {
+  return axios.get(`/api/favorited/${user_id}`, {
   })
   .then(res => {console.log('GET FAVORITE TRAILS:', res.data); return res.data})
 }

@@ -10,6 +10,7 @@ import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { getWeatherData } from '../../ducks/weather';
 import { addToFavorites } from '../../services/favorites';
 import { getUserInfo } from '../../ducks/user';
+import { getFavoriteTrails } from '../../ducks/favorites';
 
 const API_Key = 'AIzaSyCznzQ0hrAD3T27CxttlpvgfZtI9ogtuvw';
 
@@ -52,9 +53,11 @@ addToFavorites(event) {
 }
 
 
+
   componentDidMount() {
 
     document.body.scrollTop = 0;
+
 
     this.props.getUserInfo();
     this.setState({user: this.props.userInfo});
@@ -120,6 +123,7 @@ addToFavorites(event) {
 
 
     else if (trailArr.length < 1) {
+      console.log(trailArr);
       this.setState({trail: localStorage.getItem('trailStorage'), shouldRedirect: true})
     }
 
@@ -161,7 +165,7 @@ addToFavorites(event) {
               <h4 className="trail-description">{this.state.trailDescription ? this.state.trailDescription : 'No Description Found'}</h4>
               <h3 className="trail-directions-h2">Directions</h3>
               <h4 className="trail-directions">{this.state.trailDirections ? this.state.trailDirections : 'No Directions Found'}</h4>
-              <button id="favorite-trail" onClick={this.addToFavorites}>Favorite this Trail</button>
+              <div className="fav-button-contain"><button id="favorite-trail" onClick={this.addToFavorites}>Add to favorites</button></div>
               <VideoDetail video={this.state.selectedVideo}/>
               {this.state.videos ? <VideoList
               onVideoSelect={selectedVideo => this.setState({selectedVideo})}
@@ -175,10 +179,11 @@ addToFavorites(event) {
 function mapStateToProps(state) {
     return {
       userInfo: state.userLoginReducer.userData,
+      favoriteTrails: state.favReducer.favoriteTrails,
       info: state.trailReducer.trailData,
       loading: state.trailReducer.loading,
       weather: state.weatherReducer.weatherData
     }
   }
 
-export default connect(mapStateToProps, {getTrailData, getWeatherData, getUserInfo})(TrailDetails);
+export default connect(mapStateToProps, {getTrailData, getWeatherData, getUserInfo, getFavoriteTrails})(TrailDetails);
