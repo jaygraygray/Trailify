@@ -1,8 +1,8 @@
-.profile-container{
+.profile-container {
 
 }
 
-.user-contain{
+.user-contain {
   width: 100%;
   height: 50vh;
   background-color: #ffffff;
@@ -24,13 +24,13 @@
   background: none;
   border-radius: 50%;
 }
-.welcome-message{
+.welcome-message {
   color: #A0A3A5;
   font-family: AtlasGrotesk, sans-serif;
   font-weight: bold;
   font-size: 4vh;
 }
-.favorite-bar{
+.favorite-bar {
   height:10vh;
   width: 100%;
   background-color: #ff9031;
@@ -38,7 +38,8 @@
   justify-content: center;
   align-items: center;
 }
-.favorite-title{
+
+.favorite-title {
   color: white;
   font-size: 40px;
   font-weight: bold;
@@ -56,21 +57,26 @@
 .favorite-trails-container div {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
 }
 
 /*  */
+
+.fav-contain {
+  display: flex;
+  flex-direction: column;
+}
 
 .fav-trail-items {
   width: 30vw;
   height: 30vh;
   background-color: white;
   margin: 10px;
-  margin-bottom: 20vh;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .fav-trail-items img {
@@ -121,6 +127,23 @@
   cursor: pointer;
 }
 
+.fav-remove-contain {
+  display: flex;
+  justify-content: center;
+}
+
 #remove-from-favorites {
-  
+  text-align: center;
+  height: 30px;
+  width: 110px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  background: crimson;
+  border: 3px crimson solid;
+  text-transform: uppercase;
+  outline: 0;
+  cursor: pointer;
+  margin-top: 15px;
 }

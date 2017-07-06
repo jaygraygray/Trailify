@@ -44,6 +44,7 @@ componentDidMount() {
 
     render() {
 
+
       // Name Filter //
 
       const filteredName = (str) => {
@@ -56,16 +57,17 @@ componentDidMount() {
       }));
 
       const FavoriteTrails = this.props.favoriteTrails.map((data, i) => (
+        <div className="fav-contain">
           <div className="fav-trail-items" key={i}>
             <Link id="details-link" to={`/details/${data.unique_id}`}>
 
             <h2 id="fav-name">{filteredName(data.name)}</h2>
             <h4 id="fav-rating">Rating: {data.rating > 0 ? data.rating + "/5" : "N/A"}</h4>
             <h4 id="fav-length">Length: {data.length > 0 ? data.length + " mi" : "N/A"}</h4>
-            <button id="remove-from-favorites" onClick={() => this.removeFromFavorites(i)}>Remove</button>
-
             </Link>
-          </div>
+            </div>
+            <div className="fav-remove-contain"><button id="remove-from-favorites" onClick={() => this.removeFromFavorites(i)}>Remove</button></div>
+            </div>
         ))
 
 
