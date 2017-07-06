@@ -131,8 +131,13 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 22px;
 }
+
+.inyourarea {
+  font-size: 60px;
+  font-weight: bold;
+}
+
 .nearby-content{
   display: flex;
   /*justify-content: flex-end;*/
@@ -158,11 +163,10 @@
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .featured-text{
-  width: 180px;
-  font-size: 22px;
+  font-size: 60px;
   font-weight: bold;
 }
 .hexagon{

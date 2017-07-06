@@ -29,47 +29,47 @@ componentDidMount() {
                     </div>
                     <div className="hexagon-container">
                         <div className="hexagon-top">
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[0]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[1]}
                             />
                             <Hexagon
-                            trail= {Featured[2]} 
+                            trail= {Featured[2]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[3]}
                             />
                         </div>
                         <div className="hexagon-middle">
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[4]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[5]}
                             />
                             <Hexagon
                             trail= {Featured[6]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[7]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[8]}
                             />
                         </div>
                         <div className="hexagon-bottom">
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[9]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[10]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[11]}
                             />
-                            <Hexagon 
+                            <Hexagon
                             trail= {Featured[12]}
                             />
                         </div>

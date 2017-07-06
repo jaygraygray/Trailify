@@ -8,7 +8,7 @@ class Nearby extends Component {
         return (
             <div>
                 <header className="nearby-header">
-                    <h1>Trails In Your Area</h1>
+                    <h1 className="inyourarea">Trails In Your Area</h1>
                 </header>
                 <div className="nearby-content">
                     <div>
