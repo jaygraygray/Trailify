@@ -17,7 +17,7 @@ class About extends Component {
                         <h3>TRAILIFY</h3>
                          <div className="about-content-wrapper">
                             <p className="about-content">
-                                Trailify was made by a team of senior student developers at DevMountain a coding bootcamp at the heart of the Wasatch Mountains in Provo, UT. This Website was made to exemplify there skills they’ve learned during there time at DevMountain. If you would like to inquire about this site please feel free to contact any of the emails at the bottom of the webpage.
+                                Trailify was made by a team of student developers at DevMountain, a coding bootcamp at the heart of the Wasatch Mountains in Provo, UT. This website was made to exemplify the skills they’ve learned during their time at DevMountain. If you would like to inquire about this site, please feel free to contact any of the emails at the bottom of the webpage.
                             </p>
                         </div>
                       </div>

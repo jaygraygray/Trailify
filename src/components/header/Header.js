@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './Header.css';
 
 class Header extends Component {
     render() {
+      const {location, match, history} = this.props;
+      console.log(location, match, history);
         return (
             <div className="navbar">
               <img className="logo" src="./white-logo-nav.png" alt=""></img>
@@ -17,4 +19,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);
