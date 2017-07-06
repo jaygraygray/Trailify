@@ -7,7 +7,7 @@ var delicatearch = require('../../TrailResults/delicatearch.jpg')
 class NearbyHike extends Component {
 
     render() {
-        console.log(this.props.data);
+        console.log("the props", this.props.data);
            const LandingData = this.props.data.map((data, i) => (
           <div className="trail-list-items" key={i}>
             <h2 id="list-name">{data.featured_trail_name}</h2>
@@ -26,7 +26,7 @@ class NearbyHike extends Component {
                          
                         </div>
                         <ul className="nearby-list">
-                            
+                            <div>{this.props.loading ? <LoadingScreen /> : LandingData}</div>
                             <li>Hike Name</li>
                             <li>Hike Time</li>
                             <li>Hike Elevevation Gain</li>

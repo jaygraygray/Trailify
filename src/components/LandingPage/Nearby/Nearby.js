@@ -10,19 +10,16 @@ class Nearby extends Component {
         super(props);
 
         this.state = {
-            center: {}
+            center: []
         }
         this.getCenter = this.getCenter.bind(this);
     }
-    
-    componentDidMount() {
-       
-    }
-    getCenter(center) {
+           
+    getCenter(centerInput) {
         this.setState({
-            center
+            center:centerInput
         })
-        this.props.getLandingData(center.lat, center.lng);
+        this.props.getLandingData(centerInput.lat, centerInput.lng);
     }
 
 
@@ -36,8 +33,8 @@ class Nearby extends Component {
                     <div>
                         <NearbyHike 
                         data = {this.props.data}
+                        loading = {this.props.loading}
                         />
-                        <NearbyHike />
                     </div>
                     <div className="nearby-map-container">
                         <HomeMap 

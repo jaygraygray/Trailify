@@ -5,7 +5,7 @@ const GET_LANDING_PENDING = 'GET_LANDING_PENDING';
 const GET_LANDING_FULFILLED = 'GET_LANDING_FULFILLED';
 
 const initialState = {
-  landingData: {},
+  landingData: [],
   loading: false
 }
 
