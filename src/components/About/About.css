@@ -50,7 +50,7 @@
   font-family: AtlasGrotesk, sans-serif;
 }
 
-.chase-link{
+/*.chase-link{
   height: 25vh;
   width: 205px;
   background-color: white;
@@ -73,20 +73,19 @@
   background-color: white;
   text-align: center;
   font-weight: bold;
-}
-.david-link{
+}*/
+.photo-link{
   height: 25vh;
-  width: 205px;
+  width: 15vw;
   background-color: white;
   text-align: center;
   font-weight: bold;
 }
-.chase-photo{
+.developer-photo{
   width: 100%;
-  height: 100%;
-
+  height: auto;
 }
-.david-photo{
+/*.david-photo{
   width: 100%;
   height: 100%;
 }
@@ -97,4 +96,4 @@
 .taylor-photo{
   width: 100%;
   height: 100%;
-}
+}*/
