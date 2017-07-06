@@ -1,37 +1,23 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getLandingData } from '../../../ducks/landing';
 import LoadingScreen from '../../LoadingScreen/LoadingScreen';
 
 
 var delicatearch = require('../../TrailResults/delicatearch.jpg')
 
 class NearbyHike extends Component {
-    constructor(props) {
-  super(props);
-
-  this.state = {
-    trailData: {},
-    map: null,
-  }
-}
-
 
     render() {
-       console.log(this.props.info);
-      const TrailData = this.props.info.map((data, i) => (
-          <div className="trail-list-items" key={i}>
-            <h2 id="list-name">{data.featured_trail_name}</h2>
-            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
+        console.log(this.props.data);
+         //   const TrailData = this.props.info.map((data, i) => (
+    //       <div className="trail-list-items" key={i}>
+    //         <h2 id="list-name">{data.featured_trail_name}</h2>
+    //         <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
-            <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
-            <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
+    //         <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
+    //         <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
 
-          </div>
-        ))
-
-
-
+    //       </div>
+        // ))
 
         return (
             <main className="nearby-content">
@@ -40,7 +26,7 @@ class NearbyHike extends Component {
                          
                         </div>
                         <ul className="nearby-list">
-                            <div>{this.props.loading ? <LoadingScreen /> : TrailData}</div>
+                            
                             <li>Hike Name</li>
                             <li>Hike Time</li>
                             <li>Hike Elevevation Gain</li>
@@ -51,10 +37,4 @@ class NearbyHike extends Component {
         );
     }
 }
-function mapStateToProps(state) {
-    return {
-      info: state.landingReducer.getLandingData,
-      loading: state.trailReducer.loading
-    }
-  }
-export default connect(mapStateToProps, {getLandingData})(NearbyHike);
+export default (NearbyHike);

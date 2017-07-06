@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import NearbyHike from './NearbyHike';
 import HomeMap from './HomeMap';
+import { connect } from 'react-redux';
+import { getLandingData } from '../../../ducks/landing';
 import '../LandingPage.css';
 
 class Nearby extends Component {
+    
+    
+    componentDidMount() {
+       this.props.getLandingData();
+    }
     render() {
-        console.log('PROPS', this.props);
+        console.log('PROPS', this.props.data);
         return (
             <div>
                 <header className="nearby-header">
@@ -13,11 +20,14 @@ class Nearby extends Component {
                 </header>
                 <div className="nearby-content">
                     <div>
-                        <NearbyHike />
+                        <NearbyHike 
+                        data = {this.props.data}
+                        />
                         <NearbyHike />
                     </div>
                     <div className="nearby-map-container">
-                        <HomeMap />
+                        <HomeMap 
+                        />
                     </div>
                 </div>
             </div>
@@ -25,4 +35,11 @@ class Nearby extends Component {
     }
 }
 
-export default Nearby;
+function mapStateToProps(state) {
+
+    return {
+      data: state.landingReducer.landingData,
+      loading: state.landingReducer.loading
+    }
+  }
+export default connect(mapStateToProps, { getLandingData })(Nearby);
