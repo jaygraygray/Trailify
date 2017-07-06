@@ -18,7 +18,7 @@ class UserProfile extends Component {
 
 componentDidMount() {
   this.props.getUserInfo();
-  this.setState({user: this.props.userInfo})
+  this.setState({user: this.props.userInfo});
 }
 
     render() {
@@ -27,8 +27,12 @@ componentDidMount() {
           <section className="profile-container">
           <div className="user-contain">
             <div className="user-info">
+            <br />
+            <br />
+            <br />
+            <br />
               <img className="profile-picture" src={this.props.userInfo.picture} />
-              <h1 className="welcome-message">{this.props.userInfo.displayName ? "Hello, "+this.props.userInfo.displayName + "!" : ""}</h1>
+              <h1 className="welcome-message">{this.props.userInfo ? this.props.userInfo.user_first_name + ' ' + this.props.userInfo.user_last_name : "User info not found"}</h1>
             </div>
           </div>
           <div className="favorite-bar">

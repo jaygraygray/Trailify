@@ -120,7 +120,7 @@
 }
 
 .nearby-container{
-  height: 35vh;
+  height: 100%;
   width: 100%;
 }
 .nearby-header{
@@ -145,8 +145,8 @@
   width: 50vw;
 }
 .nearby-map-container{
-  height: 20vh;
-  width: 50vw;
+  height: 500px;
+  width: 500px;
 }
 .header-container{
   text-align: center;

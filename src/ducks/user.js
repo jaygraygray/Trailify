@@ -15,7 +15,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {loading: true})
 
     case GET_USER_FULFILLED:
-      console.log('getting user data', action.payload)
       return Object.assign({}, state, {loading: false, userData: action.payload})
 
     default:
