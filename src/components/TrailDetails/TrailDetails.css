@@ -108,7 +108,27 @@
 
 #favorite-trail {
   text-align: center;
+  height: 58px;
+  width: 150px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  background: #FF8B27;
+  border: 3px #FF8B27 solid;
+  text-transform: uppercase;
+  outline: 0;
+  cursor: pointer;
 }
+
+/* Add to Favorites */
+
+.fav-button-contain {
+  display: flex;
+  justify-content: center
+}
+
+
 
 /* YouTube Videos */
 

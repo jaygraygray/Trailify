@@ -12,11 +12,22 @@ exports.addToFavorites = (req, res) => {
   })
 }
 
-exports.getFavorites = (req, res) => {
-  db.getFavorites([req.user_id], (err, response) => {
+exports.removeFromFavorites = (req, res) => {
+  db.removeFromFavorites([req.params.user_id, req.params.unique_id], (err, response) => {
     if (err) {
       console.log(err)
     }
+    res.status(200).send(response);
+  })
+}
+
+exports.getFavorites = (req, res) => {
+  console.log(req.params.user_id);
+  db.getFavorites([req.params.user_id], (err, response) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(response);
     res.status(200).send(response);
   })
 }
