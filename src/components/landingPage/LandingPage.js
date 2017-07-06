@@ -23,6 +23,7 @@ class LandingPage extends Component {
               <div className="slogan">Find Your Trail</div>
               <div className="slogan">Find Yourself</div>
             </div>
+
             <TrailSearch/>
           </div>
         </section>
