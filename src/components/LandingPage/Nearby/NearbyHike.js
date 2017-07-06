@@ -9,30 +9,25 @@ class NearbyHike extends Component {
     render() {
         console.log("the props", this.props.data);
            const LandingData = this.props.data.map((data, i) => (
-          <div className="trail-list-items" key={i}>
-            <h2 id="list-name">{data.featured_trail_name}</h2>
-            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
-
-            <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
-            <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
-
+          <div className="in-your-area-hike-container"key={i}>
+            <img className="in-your-area-image" src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
+            <div className="nearby-hike-title-container">
+                <h2>{data.name}</h2>
+                <h4>Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
+                <h4>Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
+            </div>
           </div>
         ))
 
         return (
             <main className="nearby-content">
-                    <div className="nearby-hikes">
-                        <div>
-                         
-                        </div>
+                    
                         <ul className="nearby-list">
-                            <div>{this.props.loading ? <LoadingScreen /> : LandingData}</div>
-                            <li>Hike Name</li>
-                            <li>Hike Time</li>
-                            <li>Hike Elevevation Gain</li>
-                            <li>Hike Difficulty</li>
+                            <div className="nearby-hike-container">
+                                {this.props.loading ? <LoadingScreen /> : LandingData}
+                            </div>
                         </ul>
-                    </div>
+                    
                 </main>
         );
     }
