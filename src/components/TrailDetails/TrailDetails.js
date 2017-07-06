@@ -52,9 +52,11 @@ addToFavorites(event) {
 }
 
 
+
   componentDidMount() {
 
     document.body.scrollTop = 0;
+
 
     this.props.getUserInfo();
     this.setState({user: this.props.userInfo});
