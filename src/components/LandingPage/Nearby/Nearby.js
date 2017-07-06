@@ -6,13 +6,27 @@ import { getLandingData } from '../../../ducks/landing';
 import '../LandingPage.css';
 
 class Nearby extends Component {
-    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            center: {}
+        }
+        this.getCenter = this.getCenter.bind(this);
+    }
     
     componentDidMount() {
-       this.props.getLandingData();
+       
     }
+    getCenter(center) {
+        this.setState({
+            center
+        })
+        this.props.getLandingData(center.lat, center.lng);
+    }
+
+
     render() {
-        console.log('PROPS', this.props.data);
         return (
             <div>
                 <header className="nearby-header">
@@ -27,6 +41,7 @@ class Nearby extends Component {
                     </div>
                     <div className="nearby-map-container">
                         <HomeMap 
+                        getCenter = {this.getCenter}
                         />
                     </div>
                 </div>

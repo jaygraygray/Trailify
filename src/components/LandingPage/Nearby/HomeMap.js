@@ -74,6 +74,7 @@ export default class homeMap extends Component {
         },
         content: `You are here`,
       });
+      this.props.getCenter(this.state.center);
 
       raf(tick);
     }, (reason) => {

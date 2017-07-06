@@ -8,16 +8,16 @@ class NearbyHike extends Component {
 
     render() {
         console.log(this.props.data);
-         //   const TrailData = this.props.info.map((data, i) => (
-    //       <div className="trail-list-items" key={i}>
-    //         <h2 id="list-name">{data.featured_trail_name}</h2>
-    //         <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
+           const LandingData = this.props.data.map((data, i) => (
+          <div className="trail-list-items" key={i}>
+            <h2 id="list-name">{data.featured_trail_name}</h2>
+            <img src={data.activities[0].thumbnail != null ?  data.activities[0].thumbnail : delicatearch} alt="picture" />
 
-    //         <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
-    //         <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
+            <h4 id="list-rating">Rating: {data.activities[0].rating > 0 ? data.activities[0].rating + "/5" : "N/A"}</h4>
+            <h4 id="list-length">Length: {data.activities[0].length > 0 ? data.activities[0].length + " mi" : "N/A"}</h4>
 
-    //       </div>
-        // ))
+          </div>
+        ))
 
         return (
             <main className="nearby-content">
